@@ -1,0 +1,64 @@
+@use "../variables" as *;
+
+// ============================================
+// CARDS
+// ============================================
+
+.main-card {
+  box-shadow: $shadow-sm;
+  border-radius: $radius-lg;
+  padding: $spacing-xl;
+  background-color: $dashboard-primary-color;
+  border: 1px solid $dashboard-border-color;
+  transition: box-shadow 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.card-heading {
+  font-size: 1.375rem;
+  font-weight: 600;
+  display: flex;
+  color: $text-primary;
+  margin-bottom: $spacing-md;
+}
+
+.card-header-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: $text-primary;
+}
+
+.card-dashboard-container {
+  row-gap: $spacing-lg;
+  font-size: 1rem;
+  font-weight: 500;
+
+  .card-dashboard-col,
+  .card-dashboard-col-2,
+  .card-dashboard-col-3 {
+    background-color: $dashboard-primary-color;
+    box-shadow: $shadow-sm;
+    border: 1px solid $dashboard-border-color;
+    border-radius: $radius-lg;
+    padding: $spacing-lg;
+    transition: all 0.2s ease;
+
+    &:hover {
+      box-shadow: $shadow-md;
+      transform: translateY(-2px);
+    }
+  }
+
+  .card-dashboard {
+    padding: $spacing-xl;
+    border-radius: $radius-lg;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: $dashboard-primary-color;
+    box-shadow: $shadow-sm;
+  }
+}

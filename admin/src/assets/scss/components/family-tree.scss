@@ -1,0 +1,107 @@
+.family-tree {
+  &__scroll {
+    overflow: auto;
+    padding: 15px;
+    min-height: 420px;
+  }
+
+  &__ul,
+  &__ul ul {
+    padding-top: 20px;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &__ul li {
+    list-style-type: none;
+    text-align: center;
+    position: relative;
+    padding: 20px 10px 0 10px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__ul li::before,
+  &__ul li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 50%;
+    border-top: 1px solid #cfd4da;
+    width: 50%;
+    height: 20px;
+  }
+
+  &__ul li::after {
+    right: auto;
+    left: 50%;
+    border-left: 1px solid #cfd4da;
+  }
+
+  &__ul li:only-child::after,
+  &__ul li:only-child::before {
+    display: none;
+  }
+
+  &__ul li:only-child {
+    padding-top: 0;
+  }
+
+  &__ul li:first-child::before,
+  &__ul li:last-child::after {
+    border: 0 none;
+  }
+
+  &__ul li:last-child::before {
+    border-right: 1px solid #cfd4da;
+    border-radius: 0 5px 0 0;
+  }
+
+  &__ul li:first-child::after {
+    border-radius: 5px 0 0 0;
+  }
+
+  &__ul ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid #cfd4da;
+    width: 0;
+    height: 20px;
+  }
+
+  &__marriages {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &__couple {
+    display: inline-flex;
+    align-items: stretch;
+    gap: 8px;
+    padding: 6px;
+    border: 1px dashed #dee2e6;
+    border-radius: 10px;
+    background: #fff;
+  }
+
+  &__spouse-sep {
+    width: 10px;
+  }
+
+  &__person {
+    min-width: 160px;
+    border-radius: 10px;
+    border: 1px solid #dee2e6;
+  }
+
+  &__person--primary {
+    border-color: rgba(13, 110, 253, 0.35);
+    background: rgba(13, 110, 253, 0.06);
+  }
+}
+

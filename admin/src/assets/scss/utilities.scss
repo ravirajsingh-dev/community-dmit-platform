@@ -1,0 +1,30 @@
+@use "variables" as *;
+
+// ============================================
+// TEXT UTILITIES
+// ============================================
+
+.text-danger {
+  color: $error-500 !important;
+}
+
+.text-muted {
+  color: $dashboard-text-muted !important;
+}
+
+.text-primary {
+  color: $text-primary !important;
+}
+
+.text-secondary {
+  color: $text-secondary !important;
+}
+
+.text-uppercase-input {
+  text-transform: uppercase;
+}
+
+.monospace-input {
+  font-family: "SF Mono", "Monaco", "Inconsolata", "Fira Code", "Fira Mono", "Droid Sans Mono", "Source Code Pro", monospace;
+  font-size: 0.875rem;
+}

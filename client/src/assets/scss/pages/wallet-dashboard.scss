@@ -1,0 +1,348 @@
+// ============================================
+// WALLET DASHBOARD — Premium executive theme
+// ============================================
+@use "../variables" as *;
+
+.wallet-dashboard {
+  // ----- Hero: Main balance card -----
+  .wallet-dashboard__hero {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .wallet-dashboard__hero-inner {
+    position: relative;
+    background: linear-gradient(
+      135deg,
+      rgba($luxury-surface-card, 0.9) 0%,
+      rgba($luxury-surface-highlight, 0.85) 50%,
+      rgba($luxury-bg-secondary, 0.9) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba($luxury-primary-gold, 0.2);
+    border-radius: 16px;
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    min-height: 120px;
+    box-shadow:
+      0 4px 24px rgba(0, 0, 0, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .wallet-dashboard__hero-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 100%
+    );
+    border-radius: 16px 16px 0 0;
+    pointer-events: none;
+  }
+
+  .wallet-dashboard__hero-icon {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    border-radius: 16px;
+    background: rgba($luxury-primary-gold, 0.15);
+    border: 1px solid rgba($luxury-primary-gold, 0.25);
+    color: $luxury-primary-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .wallet-dashboard__hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .wallet-dashboard__hero-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: $luxury-text-muted;
+  }
+
+  .wallet-dashboard__hero-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $luxury-primary-gold;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    text-shadow: 0 0 24px rgba($luxury-primary-gold, 0.2);
+  }
+
+  @media (min-width: 576px) {
+    .wallet-dashboard__hero-amount {
+      font-size: 2rem;
+    }
+  }
+
+  // ----- Section titles -----
+  .wallet-dashboard__section {
+    margin-top: 1.5rem;
+  }
+
+  .wallet-dashboard__section-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $luxury-text-main;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    color: $luxury-primary-gold;
+  }
+
+  // ----- Club balance cards -----
+  .wallet-dashboard__empty-clubs {
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+  }
+
+  .wallet-dashboard__club-card {
+    background: rgba(20, 38, 63, 0.5) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+      border-color: rgba($luxury-primary-gold, 0.2) !important;
+    }
+  }
+
+  .wallet-dashboard__club-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    background: rgba($luxury-primary-gold, 0.12);
+    border: 1px solid rgba($luxury-primary-gold, 0.2);
+    color: $luxury-primary-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wallet-dashboard__club-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .wallet-dashboard__club-amount {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: $luxury-text-main;
+  }
+
+  // ----- Quick action cards -----
+  .wallet-dashboard__actions {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .wallet-dashboard__action-card {
+    background: rgba(20, 38, 63, 0.45) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 14px !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    cursor: pointer;
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      border-color 0.25s ease,
+      background 0.25s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+      border-color: rgba($luxury-primary-gold, 0.25) !important;
+      background: rgba(26, 54, 93, 0.5) !important;
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgba($luxury-primary-gold, 0.5);
+      outline-offset: 2px;
+    }
+  }
+
+  .wallet-dashboard__action-card--disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+
+    &:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: rgba(255, 255, 255, 0.06) !important;
+      background: rgba(20, 38, 63, 0.45) !important;
+    }
+  }
+
+  .wallet-dashboard__action-card--primary {
+    background: linear-gradient(
+      135deg,
+      rgba($luxury-primary-gold, 0.18) 0%,
+      rgba($luxury-primary-gold, 0.08) 100%
+    ) !important;
+    border-color: rgba($luxury-primary-gold, 0.3) !important;
+
+    &:hover {
+      background: linear-gradient(
+        135deg,
+        rgba($luxury-primary-gold, 0.22) 0%,
+        rgba($luxury-primary-gold, 0.12) 100%
+      ) !important;
+      border-color: rgba($luxury-primary-gold, 0.4) !important;
+    }
+
+    .wallet-dashboard__action-icon {
+      background: rgba($luxury-primary-gold, 0.25);
+      border-color: rgba($luxury-primary-gold, 0.4);
+      color: $luxury-gold-highlight;
+    }
+
+    .wallet-dashboard__action-title {
+      color: $luxury-primary-gold;
+    }
+  }
+
+  .wallet-dashboard__action-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: $luxury-primary-gold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .wallet-dashboard__action-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $luxury-text-main;
+  }
+
+  .wallet-dashboard__action-desc {
+    color: $luxury-text-muted !important;
+    line-height: 1.4;
+  }
+}
+
+// Withdrawal page — summary + pending states
+.wallet-withdrawal {
+  .wallet-withdrawal__summary {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    margin-bottom: 1.75rem;
+    padding: 1.5rem 1.75rem;
+    background: linear-gradient(
+      135deg,
+      rgba($luxury-primary-gold, 0.16) 0%,
+      rgba(26, 54, 93, 0.55) 45%,
+      rgba($luxury-bg-secondary, 0.85) 100%
+    );
+    border: 1px solid rgba($luxury-primary-gold, 0.28);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .wallet-withdrawal__summary-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $luxury-text-muted;
+    margin-bottom: 0.35rem;
+  }
+
+  .wallet-withdrawal__summary-value {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: $luxury-primary-gold;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .wallet-withdrawal__summary-value--secondary {
+    font-size: 1.35rem;
+    color: $luxury-text-main;
+  }
+
+  .wallet-withdrawal__summary-divider {
+    width: 1px;
+    min-height: 56px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 auto;
+  }
+
+  @media (max-width: 767.98px) {
+    .wallet-withdrawal__summary-divider {
+      width: 100%;
+      height: 1px;
+      min-height: 0;
+      margin: 1rem 0;
+    }
+  }
+
+  .wallet-withdrawal__pending {
+    border-radius: 16px;
+    padding: 1.5rem 1.75rem;
+    margin-bottom: 1.5rem;
+    background: rgba(20, 38, 63, 0.65);
+    border: 1px solid rgba(255, 193, 7, 0.35);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25);
+  }
+
+  .wallet-withdrawal__pending-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #ffc107;
+    margin-bottom: 0.75rem;
+  }
+
+  .wallet-withdrawal__section-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: $luxury-primary-gold;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.65rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .wallet-withdrawal__disabled {
+    border-radius: 14px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    background: rgba(220, 53, 69, 0.12);
+    border: 1px solid rgba(220, 53, 69, 0.35);
+  }
+}

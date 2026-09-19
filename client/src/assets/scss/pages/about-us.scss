@@ -1,0 +1,174 @@
+@use "../variables" as *;
+
+/* ===================================
+   ABOUT US PAGE
+=================================== */
+.about-us-page {
+  min-height: 60vh;
+}
+
+.about-us-content-section {
+  padding: 90px 0;
+  background-color: $theme-surface-alt;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+.about-us-content-header {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.about-us-content-title {
+  color: $theme-heading;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+/* ===================================
+   DESCRIPTION
+=================================== */
+.about-us-description {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.about-us-description-content {
+  color: $theme-text;
+  font-size: 18px;
+  line-height: 1.9;
+  text-align: left;
+
+  p {
+    margin-bottom: 20px;
+    color: $theme-text;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $theme-heading;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  ul, ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    
+    li {
+      list-style: disc;
+      margin-bottom: 10px;
+      color: $theme-text;
+    }
+  }
+}
+
+/* ===================================
+   MISSION + VISION ROW
+=================================== */
+.about-us-content-row {
+  margin-top: 40px;
+}
+
+.about-us-content-block {
+  padding: 0 30px;
+  position: relative;
+  margin-bottom: 40px;
+
+  h3 {
+    color: $theme-heading;
+    font-size: 28px;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+  }
+
+  .about-us-content-text {
+    color: $theme-text;
+    font-size: 16px;
+    line-height: 1.85;
+
+    p {
+      margin-bottom: 15px;
+      color: $theme-text;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+  }
+}
+
+/* Vertical divider */
+.about-us-content-block-right {
+  border-left: 1px solid rgba($theme-primary, 0.25);
+  padding-left: 50px;
+}
+
+/* ===================================
+   EMPTY STATE
+=================================== */
+.about-us-empty {
+  text-align: center;
+  padding: 100px 20px;
+
+  h2 {
+    color: $theme-heading;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: $theme-text;
+    font-size: 16px;
+  }
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+  .about-us-content-section {
+    padding: 60px 0;
+  }
+
+  .about-us-content-header {
+    margin-bottom: 40px;
+  }
+
+  .about-us-content-title {
+    font-size: 28px;
+  }
+
+  .about-us-description {
+    margin-bottom: 40px;
+  }
+
+  .about-us-description-content {
+    font-size: 16px;
+  }
+
+  .about-us-content-block {
+    padding: 0 15px;
+    margin-bottom: 30px;
+
+    h3 {
+      font-size: 22px;
+    }
+
+    .about-us-content-text {
+      font-size: 15px;
+    }
+  }
+
+  .about-us-content-block-right {
+    border-left: none;
+    border-top: 1px solid rgba($theme-primary, 0.25);
+    padding-left: 15px;
+    padding-top: 30px;
+    margin-top: 30px;
+  }
+}

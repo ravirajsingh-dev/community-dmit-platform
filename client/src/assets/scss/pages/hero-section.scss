@@ -1,0 +1,225 @@
+@use "../variables" as *;
+
+// ============================================
+// SBI PRO HERO – Executive Premium UI
+// ============================================
+$hero-cyan: #4fc3f7;
+
+.sbi-hero-section {
+  position: relative;
+  min-height: 100vh;
+  min-height: clamp(520px, 90vh, 720px);
+  display: flex;
+  align-items: center;
+  padding: 2rem 0 4rem;
+  overflow: hidden;
+  background: $theme-bg;
+
+  @media (max-width: 991px) {
+    min-height: auto;
+    padding: 3rem 0 4rem;
+  }
+
+  @media (max-width: 576px) {
+    padding: 2rem 0 3rem;
+  }
+}
+
+.sbi-hero-background {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sbi-hero-network {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 30% 40%, rgba($theme-primary, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 80% at 75% 60%, rgba($theme-primary, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba($hero-cyan, 0.03) 0%, transparent 40%);
+  animation: sbi-network-pulse 10s ease-in-out infinite;
+}
+
+.sbi-hero-glow-dots {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  background-image:
+    radial-gradient(2px 2px at 12% 18%, rgba($theme-primary, 0.35), transparent),
+    radial-gradient(2px 2px at 88% 22%, rgba($theme-primary, 0.3), transparent),
+    radial-gradient(2px 2px at 72% 82%, rgba($hero-cyan, 0.2), transparent),
+    radial-gradient(2px 2px at 22% 78%, rgba($theme-primary, 0.18), transparent),
+    radial-gradient(2px 2px at 50% 50%, rgba($theme-primary, 0.1), transparent);
+  background-size: 220% 220%, 200% 200%, 240% 240%, 200% 200%, 100% 100%;
+  animation: sbi-dots-float 14s ease-in-out infinite;
+}
+
+@keyframes sbi-network-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; }
+}
+
+@keyframes sbi-dots-float {
+  0%, 100% { background-position: 0% 0%, 5% 15%, 15% 5%, 10% 20%, 50% 50%; }
+  50% { background-position: 15% 10%, 20% 5%, 5% 20%, 20% 10%, 50% 50%; }
+}
+
+.sbi-hero-container {
+  position: relative;
+  z-index: 2;
+}
+
+.sbi-hero-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.sbi-hero-loading {
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Badge above title
+.sbi-hero-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $theme-primary;
+  margin-bottom: 1rem;
+  opacity: 0.95;
+
+  @media (max-width: 991px) {
+    text-align: center;
+  }
+}
+
+// Content column
+.sbi-hero-content-col {
+  @media (max-width: 991px) {
+    text-align: center;
+    order: 2;
+  }
+}
+
+.sbi-hero-title {
+  font-size: clamp(2rem, 5vw, 3.25rem);
+  font-weight: 800;
+  color: $theme-text-on-surface;
+  line-height: 1.15;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.03em;
+
+  @media (max-width: 991px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sbi-hero-subheading {
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  color: rgba($theme-text-on-surface, 0.78);
+  line-height: 1.65;
+  margin-bottom: 2.25rem;
+  max-width: 480px;
+  font-weight: 400;
+
+  @media (max-width: 991px) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sbi-hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+
+  @media (max-width: 991px) {
+    justify-content: center;
+  }
+}
+
+.sbi-hero-btn-primary {
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  background: $theme-primary !important;
+  border: none !important;
+  color: $theme-text-on-primary !important;
+  transition: transform 0.2s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba($theme-primary, 0.4);
+    background: darken($theme-primary, 5%) !important;
+    color: $theme-text-on-primary !important;
+  }
+}
+
+.sbi-hero-btn-secondary {
+  padding: 0.75rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  background: transparent !important;
+  border: 2px solid rgba($theme-text-on-surface, 0.4) !important;
+  color: $theme-text-on-surface !important;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: rgba($theme-text-on-surface, 0.06) !important;
+    border-color: rgba($theme-text-on-surface, 0.7) !important;
+    color: $theme-text-on-surface !important;
+    transform: translateY(-1px);
+  }
+}
+
+// Brain graphic column
+.sbi-hero-graphic-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (max-width: 991px) {
+    order: 1;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.sbi-hero-brain-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+.sbi-hero-brain-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0;
+  filter: drop-shadow(0 0 24px rgba($theme-primary, 0.28));
+  animation: sbi-brain-float 5s ease-in-out infinite;
+}
+
+@keyframes sbi-brain-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes sbi-circle-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.88; }
+}
+
+@keyframes sbi-arrow-move {
+  0%, 100% { opacity: 0.92; transform: translate(0, 0); }
+  50% { opacity: 1; transform: translate(3px, -2px); }
+}

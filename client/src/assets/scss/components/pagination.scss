@@ -1,0 +1,172 @@
+@use "../variables" as *;
+
+// pagination
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination-dropdown-btn {
+  color: $theme-primary;
+  background: $theme-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  transition: 0.3s;
+  margin: 0 5px;
+  font-weight: 500;
+  font-size: 18px;
+  border: 1px solid $theme-primary;
+}
+.pagination-dropdown-btn::after {
+  display: none !important;
+}
+
+.pagination-dropdown-btn:hover {
+  background: $theme-surface;
+  color: $theme-text-on-surface;
+  border: 1px solid $theme-primary;
+}
+.pagination-dropdown-btn:active,
+.pagination-dropdown-btn.show,
+.pagination-dropdown-btn:focus {
+  background: $theme-bg !important;
+  color: $theme-text-on-surface !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) !important;
+  border: 1px solid $theme-primary;
+}
+
+/* Dropdown Menu */
+.pagination-dropdown-menu {
+  background: $theme-surface !important;
+  border: 1px solid $theme-border-muted !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 8px 0;
+  min-width: 120px;
+}
+
+/* Dropdown Items */
+.pagination-dropdown-item {
+  color: $theme-text !important;
+  padding: 10px 16px;
+  font-size: 16px;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Hover & Active State for Items */
+.pagination-dropdown-item:hover,
+.pagination-dropdown-item:focus {
+  background: $theme-primary;
+  color: $theme-text-on-surface;
+}
+
+/* Active State for Selected Item */
+.pagination-dropdown-item.active {
+  background: $theme-primary !important;
+  color: $theme-text-on-surface !important;
+}
+
+/* Remove default Bootstrap outline */
+.pagination-dropdown-item:focus,
+.pagination-dropdown-menu:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.pagination-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px !important;
+
+  .col-xs-12 {
+    padding: 0 15px;
+  }
+
+  .d-flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      margin: 0;
+      font-size: 14px;
+      color: $theme-primary;
+
+      &.me-3 {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  ul.pagination-numbers {
+    list-style: none;
+    padding: 0;
+    display: inline-flex;
+    margin-bottom: 0;
+
+    li {
+      margin: 0 5px;
+
+      button,
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 4px;
+        background-color: $theme-bg;
+        color: $theme-primary;
+        font-weight: 500;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+
+        &:hover:not(.pagination-disabled) {
+          background-color: $theme-primary;
+          color: $theme-bg;
+        }
+
+        &.pagination-current {
+          background-color: $theme-bg;
+          color: $theme-primary;
+          border: 1px solid $theme-primary;
+        }
+
+        &.pagination-disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+      }
+
+      span.pagination-numbers {
+        cursor: default;
+        background-color: transparent;
+        color: $theme-text;
+
+        &:hover {
+          background-color: transparent;
+          color: $theme-text;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+@use "../variables" as *;
+
+// ============================================
+// ROOT — admin 100vh layout ke liye
+// ============================================
+html,
+body {
+  margin: 0;
+}
+
+// ============================================
+// RESPONSIVE BREAKPOINTS
+// ============================================
+$bp-phone: 576px;
+$bp-tablet: 768px;
+$bp-laptop: 992px;
+$bp-desktop: 1200px;
+$bp-wide: 1400px;
+
+// ============================================
+// ADMIN DASHBOARD LAYOUT — 100vh, FULLY RESPONSIVE
+// ============================================
+
+.layout-dashboard-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  transition: padding-left 0.3s ease;
+
+  > .layout-header-navbar {
+    flex-shrink: 0;
+  }
+}
+
+/* Sidebar OPEN */
+.layout-dashboard-container.show {
+  padding-left: 250px;
+}
+
+/* Sidebar CLOSED */
+.layout-dashboard-container.hide {
+  padding-left: 0;
+}
+
+// ============================================
+// SCROLLABLE MAIN CONTENT (FILLS REMAINING HEIGHT)
+// ============================================
+
+.layout-scrollable-content {
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: $dashboard-text-muted transparent;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $dashboard-text-muted;
+    border-radius: $radius-full;
+
+    &:hover {
+      background-color: $text-secondary;
+    }
+  }
+}
+
+// ============================================
+// RESPONSIVE: PHONE
+// ============================================
+@media screen and (max-width: #{$bp-tablet}) {
+  .layout-dashboard-container.show {
+    padding-left: 0;
+  }
+
+  .layout-scrollable-content {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+}
+
+// ============================================
+// RESPONSIVE: TABLET
+// ============================================
+@media screen and (min-width: #{$bp-tablet + 1}) and (max-width: #{$bp-laptop}) {
+  .layout-dashboard-container.show {
+    padding-left: 250px;
+  }
+
+  .layout-scrollable-content {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+// ============================================
+// RESPONSIVE: LAPTOP & BIG SCREENS
+// ============================================
+@media screen and (min-width: #{$bp-laptop + 1}) {
+  .layout-scrollable-content {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}

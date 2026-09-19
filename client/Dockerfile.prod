@@ -1,0 +1,49 @@
+# Build stage
+FROM node:20-alpine AS builder
+
+WORKDIR /tt-client
+
+# Copy package files
+COPY ./client/package*.json ./
+
+# Install dependencies
+RUN npm ci
+
+# Copy source code
+COPY ./client .
+
+# Build arguments (must match docker-compose.prod.yml build args)
+ARG VITE_APP_PORT
+ARG VITE_APP_ENV
+ARG VITE_APP_APP_NAME
+ARG VITE_APP_SERVER_URL
+ARG VITE_APP_PORTAL_URL
+ENV VITE_APP_PORT=${VITE_APP_PORT}
+ENV VITE_APP_ENV=${VITE_APP_ENV}
+ENV VITE_APP_APP_NAME=${VITE_APP_APP_NAME}
+ENV VITE_APP_SERVER_URL=${VITE_APP_SERVER_URL}
+ENV VITE_APP_PORTAL_URL=${VITE_APP_PORTAL_URL}
+
+# Build the application
+RUN npm run build
+
+# Production stage - use nginx for smaller image
+FROM nginx:alpine
+
+# Copy built files from builder
+COPY --from=builder /tt-client/dist /usr/share/nginx/html
+
+# Copy nginx configuration (optional - nginx default works for SPA)
+RUN echo 'server { \
+    listen 3000; \
+    server_name _; \
+    root /usr/share/nginx/html; \
+    index index.html; \
+    location / { \
+    try_files $uri $uri/ /index.html; \
+    } \
+    }' > /etc/nginx/conf.d/default.conf
+
+EXPOSE 3000
+
+CMD ["nginx", "-g", "daemon off;"]

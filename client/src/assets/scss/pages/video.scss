@@ -1,0 +1,169 @@
+@use "../variables" as *;
+
+/*----------------------------------------*/
+/*  Video Section
+/*----------------------------------------*/
+
+.video-gallery-section {
+  background-color: $theme-surface-alt;
+  padding-top: 130px;
+  padding-bottom: 90px;
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 60px;
+
+    .section-label {
+      display: block;
+      margin-bottom: 15px;
+      padding-left: 20px;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 35px;
+    }
+
+    p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba($theme-primary, 0.65);
+      margin-bottom: 40px;
+    }
+  }
+
+  .video-gallery-item {
+    margin-bottom: 30px;
+
+    .video-gallery-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      background-color: $theme-bg;
+
+      .video-gallery-iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+    }
+
+    .video-gallery-title {
+      margin-top: 15px;
+      text-align: center;
+
+      h4 {
+        color: $theme-primary;
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+      }
+    }
+  }
+
+  .video-gallery-loading {
+    text-align: center;
+    padding: 60px 20px;
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/*----------------------------------------*/
+/*  Responsive Styles
+/*----------------------------------------*/
+
+// Tablet (768px - 991px)
+@media (min-width: 768px) and (max-width: 991px) {
+  .video-gallery-section {
+    padding-top: 100px;
+    padding-bottom: 70px;
+
+    .section-title {
+      h2 {
+        font-size: 36px;
+      }
+
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// Small Tablet (576px - 767px)
+@media (min-width: 576px) and (max-width: 767px) {
+  .video-gallery-section {
+    padding-top: 80px;
+    padding-bottom: 60px;
+
+    .section-title {
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+      }
+
+      p {
+        font-size: 14px;
+        padding: 0 15px;
+      }
+    }
+
+    .video-gallery-item {
+      margin-bottom: 25px;
+    }
+  }
+}
+
+// Mobile (max-width: 575px)
+@media (max-width: 575px) {
+  .video-gallery-section {
+    padding-top: 60px;
+    padding-bottom: 40px;
+
+    .section-title {
+      margin-bottom: 30px;
+
+      .section-label {
+        font-size: 12px;
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 14px;
+        padding: 0 15px;
+        margin-bottom: 30px;
+      }
+    }
+
+    .video-gallery-item {
+      margin-bottom: 20px;
+
+      .video-gallery-title {
+        h4 {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

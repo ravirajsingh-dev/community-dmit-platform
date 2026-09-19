@@ -1,0 +1,105 @@
+@use "../variables" as *;
+
+/*----------------------------------------*/
+/*  Custom Slider Component
+/*----------------------------------------*/
+
+.hero-slider-area {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  background-color: $theme-bg;
+
+  .hero-slider-container {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    max-height: 720px;
+    overflow: hidden;
+    margin: 0 auto;
+    border-radius: 8px;
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      height: 60vh;
+      max-height: 600px;
+    }
+
+    @media (max-width: 768px) {
+      height: 45vh;
+      max-height: 420px;
+    }
+  }
+
+  .hero-slider-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1;
+
+    &.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      // Show full image without cutting any part
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+  }
+
+
+  // Loading State
+  .hero-slider-loading,
+  .hero-slider-empty {
+    height: 70vh;
+    max-height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $theme-surface-alt;
+
+    @media (min-width: 769px) and (max-width: 1024px) {
+      height: 60vh;
+      max-height: 600px;
+    }
+
+    @media (max-width: 768px) {
+      height: 45vh;
+      max-height: 420px;
+    }
+  }
+
+  .hero-slider-empty {
+    .text-center {
+      color: $theme-primary;
+      text-align: center;
+
+      h3 {
+        margin-bottom: 10px;
+        font-size: 32px;
+
+        @media (max-width: 768px) {
+          font-size: 24px;
+        }
+      }
+
+      p {
+        font-size: 18px;
+
+        @media (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+

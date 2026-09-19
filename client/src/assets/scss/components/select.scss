@@ -1,0 +1,64 @@
+// React Select Styling
+// Uses classNamePrefix="select" from CustomSelect component
+
+.select {
+  &__control {
+    padding: 5px 0;
+    background: var(--theme-surface) !important;
+    color: var(--theme-primary) !important;
+    border-color: rgba(var(--theme-primary-rgb), 0.3) !important;
+
+    &:hover {
+      border-color: rgba(var(--theme-primary-rgb), 0.5) !important;
+    }
+
+    &--is-focused {
+      border-color: rgba(var(--theme-primary-rgb), 0.5) !important;
+      box-shadow: 0 0 0 1px rgba(var(--theme-primary-rgb), 0.3) !important;
+    }
+  }
+
+  &__option {
+    color: var(--theme-primary) !important;
+    background: var(--theme-surface) !important;
+
+    &--is-selected,
+    &--is-focused {
+      color: var(--theme-text-on-surface) !important;
+      background: var(--theme-primary) !important;
+    }
+  }
+
+  &__single-value {
+    color: var(--theme-primary) !important;
+  }
+
+  &__placeholder {
+    color: var(--theme-text-muted-light) !important;
+  }
+
+  &__input {
+    color: var(--theme-primary) !important;
+  }
+
+  &__dropdown-indicator {
+    color: var(--theme-primary) !important;
+  }
+
+  &__clear-indicator {
+    color: var(--theme-primary) !important;
+    cursor: pointer !important;
+
+    &:hover {
+      color: var(--theme-primary) !important;
+    }
+  }
+
+  &__menu {
+    background: var(--theme-surface) !important;
+  }
+
+  &__menu-list {
+    background: var(--theme-surface) !important;
+  }
+}

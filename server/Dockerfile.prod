@@ -1,0 +1,39 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /tt-server
+
+COPY ./server ./
+
+RUN npm ci --legacy-peer-deps
+
+CMD ["npm", "run", "start"]
+
+
+# FROM node:20-alpine
+
+# WORKDIR /tt-server
+
+# # Copy package files first for better layer caching
+# COPY ./server/package*.json ./
+
+# # Install production dependencies only
+# RUN npm ci --omit=dev --legacy-peer-deps
+
+# # Copy source code
+# COPY ./server .
+
+# # Remove unnecessary files
+# RUN rm -rf node_modules/.cache tests .git *.md
+
+# # Create non-root user for security
+# RUN addgroup -g 1001 -S nodejs && \
+#     adduser -S nodejs -u 1001
+
+# # Change ownership of app directory
+# RUN chown -R nodejs:nodejs /tt-server
+
+# USER nodejs
+
+# EXPOSE 5000
+
+# CMD ["npm", "run", "start"]

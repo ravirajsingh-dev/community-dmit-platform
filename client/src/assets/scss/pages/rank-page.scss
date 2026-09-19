@@ -1,0 +1,477 @@
+@use "../variables" as *;
+
+.rank-page {
+  .rank-page__section {
+    margin-bottom: 0.5rem;
+  }
+
+  .rank-page__title {
+    color: $luxury-primary-gold;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .rank-page__subtitle {
+    color: $luxury-text-muted !important;
+    max-width: 760px;
+  }
+
+  .rank-page__formula {
+    background: rgba($luxury-surface-card, 0.52);
+    border: 1px solid rgba($luxury-primary-gold, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .rank-page__formula-title {
+    color: $luxury-gold-highlight;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    letter-spacing: 0.02em;
+  }
+
+  .rank-page__formula-line {
+    color: $luxury-text-main;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    margin-bottom: 0.2rem;
+  }
+
+  .rank-page__formula-note {
+    margin-top: 0.35rem;
+    color: $luxury-text-muted;
+    font-size: 0.66rem;
+    line-height: 1.4;
+  }
+
+  .rank-page__current {
+    background: linear-gradient(
+      145deg,
+      rgba($luxury-surface-card, 0.92) 0%,
+      rgba($luxury-surface-highlight, 0.8) 100%
+    );
+    border: 1px solid rgba($luxury-primary-gold, 0.28);
+    border-radius: 12px;
+    padding: 0.85rem 1rem;
+    box-shadow: 0 8px 22px rgba(0, 0, 0, 0.3);
+  }
+
+  .rank-page__current-label {
+    color: $luxury-text-muted;
+    font-size: 0.74rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.25rem;
+  }
+
+  .rank-page__current-value {
+    color: $luxury-gold-highlight;
+    font-size: 1.05rem;
+    font-weight: 800;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+  }
+
+  .rank-page__current-star {
+    color: $luxury-primary-gold;
+  }
+
+  .rank-page__card {
+    background: linear-gradient(
+      145deg,
+      rgba($luxury-surface-card, 0.9) 0%,
+      rgba($luxury-surface-highlight, 0.7) 58%,
+      rgba($luxury-bg-secondary, 0.85) 100%
+    ) !important;
+    border: 1px solid rgba($luxury-primary-gold, 0.18) !important;
+    border-radius: 14px !important;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: rgba($luxury-primary-gold, 0.35) !important;
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.36),
+        0 0 0 1px rgba($luxury-primary-gold, 0.14);
+    }
+  }
+
+  .rank-page__card--current {
+    border-color: rgba($luxury-gold-highlight, 0.42) !important;
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.36),
+      0 0 0 1px rgba($luxury-gold-highlight, 0.2);
+  }
+
+  .rank-page__card-body {
+    padding: 0.95rem;
+  }
+
+  .rank-page__card-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .rank-page__rank-title {
+    color: $luxury-text-main;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .rank-page__rank-meta {
+    color: $luxury-text-muted;
+    font-size: 0.72rem;
+    margin-top: 0.2rem;
+  }
+
+  .rank-page__rank-benefit {
+    margin-top: 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    color: $luxury-gold-highlight;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    text-shadow: 0 0 10px rgba($luxury-primary-gold, 0.2);
+  }
+
+  .rank-page__rank-benefit-note {
+    margin-top: 0.3rem;
+    color: $luxury-text-muted;
+    font-size: 0.66rem;
+    line-height: 1.35;
+  }
+
+  .rank-page__rank-waiting {
+    margin-top: 0.32rem;
+    display: block;
+    align-items: center;
+    color: $luxury-gold-highlight;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .rank-page__status-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .rank-page__tick,
+  .rank-page__pending {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  .rank-page__tick {
+    background: rgba($theme-success, 0.2);
+    border: 1px solid rgba($theme-success, 0.45);
+    color: $theme-success;
+  }
+
+  .rank-page__pending {
+    background: rgba($luxury-text-muted, 0.16);
+    border: 1px solid rgba($luxury-text-muted, 0.4);
+    color: $luxury-text-muted;
+  }
+
+  .rank-page__overall {
+    margin-bottom: 0.75rem;
+  }
+
+  .rank-page__overall-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: $luxury-text-main;
+    font-size: 0.76rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .rank-page__progress .progress-bar {
+    background: linear-gradient(
+      90deg,
+      rgba($luxury-gold-highlight, 0.95) 0%,
+      rgba($luxury-primary-gold, 0.9) 100%
+    ) !important;
+  }
+
+  .rank-page__conditions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
+
+  .rank-page__condition {
+    background: rgba($luxury-bg-secondary, 0.44);
+    border: 1px solid rgba($luxury-primary-gold, 0.16);
+    border-radius: 10px;
+    padding: 0.55rem 0.6rem;
+  }
+
+  .rank-page__condition-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.6rem;
+    align-items: center;
+  }
+
+  .rank-page__condition-label {
+    color: $luxury-text-main;
+    font-size: 0.74rem;
+    font-weight: 600;
+  }
+
+  .rank-page__cond-tick {
+    color: $theme-success;
+    font-size: 0.7rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .rank-page__cond-pending {
+    color: $luxury-gold-highlight;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .rank-page__condition-values {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    color: $luxury-text-muted;
+    font-size: 0.68rem;
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .rank-page__condition-progress {
+    height: 6px;
+    background: rgba($luxury-primary-gold, 0.14);
+  }
+
+  .rank-page__condition-progress .progress-bar {
+    background: linear-gradient(
+      90deg,
+      rgba($theme-success, 0.95) 0%,
+      rgba($luxury-primary-gold, 0.95) 100%
+    ) !important;
+  }
+}
+
+.designation-page {
+  .availability-card {
+    border: 1px solid rgba($luxury-accent-cyan, 0.35) !important;
+    border-radius: 14px !important;
+    background: linear-gradient(
+      140deg,
+      rgba($luxury-surface-card, 0.94) 0%,
+      rgba($luxury-surface-highlight, 0.8) 100%
+    ) !important;
+    box-shadow:
+      0 10px 24px rgba(0, 0, 0, 0.25),
+      0 0 0 1px rgba($luxury-accent-cyan, 0.1);
+    overflow: hidden;
+  }
+
+  .availability-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border-bottom: 1px solid rgba($luxury-accent-cyan, 0.22);
+    background: linear-gradient(
+      90deg,
+      rgba($luxury-accent-cyan, 0.16) 0%,
+      rgba($luxury-surface-highlight, 0.22) 100%
+    );
+  }
+
+  .availability-card-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.05rem;
+    background: rgba($luxury-accent-cyan, 0.18);
+    border: 1px solid rgba($luxury-accent-cyan, 0.35);
+    box-shadow: 0 0 12px rgba($luxury-accent-cyan, 0.25);
+    flex-shrink: 0;
+  }
+
+  .availability-card-title {
+    color: $luxury-gold-highlight !important;
+    font-size: 0.95rem;
+    font-weight: 800;
+    margin-bottom: 0.2rem !important;
+    letter-spacing: 0.01em;
+  }
+
+  .availability-card-subtitle {
+    color: $luxury-text-main;
+    font-size: 0.73rem;
+    line-height: 1.5;
+    max-width: 900px;
+  }
+
+  .availability-card-body {
+    background: rgba($luxury-bg-secondary, 0.38);
+  }
+
+  .designation-page__metric {
+    background: linear-gradient(
+      145deg,
+      rgba($luxury-surface-card, 0.9) 0%,
+      rgba($luxury-surface-highlight, 0.78) 100%
+    );
+    border: 1px solid rgba($luxury-primary-gold, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem 0.95rem;
+    min-height: 76px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+  }
+
+  .designation-page__metric-label {
+    color: $luxury-text-muted;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.15rem;
+  }
+
+  .designation-page__metric-value {
+    color: $luxury-gold-highlight;
+    font-size: 1.05rem;
+    font-weight: 800;
+    line-height: 1.2;
+  }
+
+  .designation-page__status-note {
+    margin-top: 0.45rem;
+    border-radius: 10px;
+    padding: 0.5rem 0.6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    border: 1px solid transparent;
+  }
+
+  .designation-page__status-note-title {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .designation-page__status-note-message {
+    font-size: 0.68rem;
+    line-height: 1.35;
+    color: $luxury-text-main;
+  }
+
+  .designation-page__status-note--blocked {
+    background: linear-gradient(
+      135deg,
+      rgba($theme-danger, 0.2) 0%,
+      rgba($luxury-bg-secondary, 0.48) 100%
+    );
+    border-color: rgba($theme-danger, 0.52);
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.18),
+      inset 0 0 0 1px rgba($theme-danger, 0.1);
+
+    .designation-page__status-note-title {
+      color: $theme-danger;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  .designation-page__status-note--rejected {
+    background: rgba($theme-warning, 0.14);
+    border-color: rgba($theme-warning, 0.45);
+
+    .designation-page__status-note-title {
+      color: $theme-warning;
+    }
+  }
+
+  .designation-page__status-note--pending {
+    background: rgba($luxury-accent-cyan, 0.13);
+    border-color: rgba($luxury-accent-cyan, 0.35);
+
+    .designation-page__status-note-title {
+      color: $luxury-accent-cyan;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .rank-page {
+    .rank-page__card-body {
+      padding: 0.8rem;
+    }
+
+    .rank-page__rank-title {
+      font-size: 0.84rem;
+    }
+
+    .rank-page__condition-label {
+      font-size: 0.68rem;
+    }
+
+    .rank-page__condition-values {
+      font-size: 0.63rem;
+    }
+  }
+
+  .designation-page {
+    .availability-card-icon {
+      width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
+    }
+
+    .availability-card-title {
+      font-size: 0.86rem;
+    }
+
+    .availability-card-subtitle {
+      font-size: 0.68rem;
+      line-height: 1.45;
+    }
+
+    .designation-page__metric {
+      min-height: 68px;
+      padding: 0.7rem 0.8rem;
+    }
+
+    .designation-page__metric-value {
+      font-size: 0.95rem;
+    }
+  }
+}

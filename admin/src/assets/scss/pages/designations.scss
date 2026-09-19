@@ -1,0 +1,253 @@
+@use "../variables" as *;
+
+// ============================================
+// DESIGNATIONS MANAGEMENT
+// ============================================
+
+.designation-mgmt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: $spacing-md;
+  margin-bottom: $spacing-lg;
+}
+
+.designation-mgmt-title {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: $text-primary;
+}
+
+.designation-mgmt-title-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($accent-500, 0.12);
+  color: $accent-600;
+  box-shadow: $shadow-sm;
+}
+
+.designation-status-card {
+  border-radius: $radius-xl !important;
+  border: 1px solid $dashboard-border-color !important;
+  box-shadow: $shadow-sm !important;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md !important;
+    border-color: rgba($accent-500, 0.5) !important;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($accent-500, 0.2), $shadow-md !important;
+  }
+}
+
+.designation-status-card__body {
+  padding: $spacing-lg !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100%;
+}
+
+.designation-status-card__left {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.designation-status-card__icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: $shadow-sm;
+}
+
+.designation-status-card__meta {
+  line-height: 1.1;
+}
+
+.designation-status-card__title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $text-secondary;
+}
+
+.designation-status-card__count {
+  margin-top: 0.25rem;
+  font-weight: 800;
+  font-size: 1.85rem;
+  color: $text-primary;
+}
+
+.designation-status-card--pending {
+  background: linear-gradient(
+    135deg,
+    rgba($warning-500, 0.18),
+    rgba($accent-500, 0.06)
+  );
+  border-color: rgba($warning-500, 0.28) !important;
+}
+
+.designation-status-card--approved {
+  background: linear-gradient(
+    135deg,
+    rgba($success-500, 0.18),
+    rgba($accent-500, 0.06)
+  );
+  border-color: rgba($success-500, 0.28) !important;
+}
+
+.designation-status-card--rejected {
+  background: linear-gradient(
+    135deg,
+    rgba($error-500, 0.18),
+    rgba($accent-500, 0.06)
+  );
+  border-color: rgba($error-500, 0.28) !important;
+}
+
+.designation-status-card--blocked {
+  background: linear-gradient(
+    135deg,
+    rgba($dashboard-text-muted, 0.22),
+    rgba($accent-500, 0.06)
+  );
+  border-color: rgba($dashboard-text-muted, 0.28) !important;
+}
+
+.designation-status-card__icon-wrap--pending {
+  background: rgba($warning-500, 0.15);
+  color: $warning-500;
+}
+
+.designation-status-card__icon-wrap--approved {
+  background: rgba($success-500, 0.15);
+  color: $success-500;
+}
+
+.designation-status-card__icon-wrap--rejected {
+  background: rgba($error-500, 0.15);
+  color: $error-500;
+}
+
+.designation-status-card__icon-wrap--blocked {
+  background: rgba($dashboard-text-muted, 0.15);
+  color: $text-secondary;
+}
+
+.designation-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-sm;
+  align-items: center;
+  margin-bottom: $spacing-md;
+}
+
+.designation-filter-chip {
+  border-radius: $radius-full !important;
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+}
+
+.designation-table-wrapper {
+  background-color: $dashboard-secondary-color;
+  border-radius: $radius-xl;
+  border: 1px solid $dashboard-border-color;
+  box-shadow: $shadow-sm;
+  padding: $spacing-md !important;
+}
+
+@media screen and (max-width: 576px) {
+  .designation-mgmt-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+
+  .designation-mgmt-title {
+    font-size: 1.125rem;
+  }
+
+  .designation-status-card__body {
+    padding: $spacing-md !important;
+  }
+
+  .designation-status-card__count {
+    font-size: 1.6rem;
+  }
+
+  .designation-filter-chips {
+    margin-bottom: $spacing-sm;
+    gap: $spacing-xs;
+  }
+
+  .designation-table-wrapper {
+    padding: $spacing-sm !important;
+  }
+}
+
+.designation-action-modal-title {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.designation-action-modal-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: $radius-lg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba($accent-500, 0.12);
+  color: $accent-600;
+}
+
+.designation-filters-accordion {
+  .accordion-item {
+    border: 1px solid $dashboard-border-color;
+    border-radius: $radius-lg;
+    overflow: hidden;
+    box-shadow: $shadow-sm;
+    background: $dashboard-primary-color;
+    + .accordion-item {
+      margin-top: $spacing-sm;
+    }
+  }
+
+  .accordion-button {
+    font-weight: 700;
+    color: $text-primary;
+    background: $dashboard-primary-color;
+  }
+
+  .accordion-body {
+    padding-top: $spacing-md;
+  }
+}
+
+.designation-filter-panel {
+  background: $dashboard-secondary-color;
+  border: 1px solid $dashboard-border-color;
+  border-radius: $radius-lg;
+  padding: $spacing-md !important;
+}
+

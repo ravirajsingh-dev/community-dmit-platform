@@ -1,0 +1,117 @@
+// ============================================
+// SBI PRO Section – Fingerprint Analysis
+// Uses theme variables for consistency
+// ============================================
+@use "../variables" as *;
+
+.sbi-pro-page {
+  /* Fix hover blink - OverlayTrigger was causing layout shift; use title for tooltip */
+  .sbi-pro-nav-tabs .nav-link {
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+    cursor: pointer;
+  }
+
+  .sbi-pro-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $theme-primary;
+    margin-bottom: 1.5rem;
+
+    .sbi-pro-icon {
+      font-size: 1.75rem;
+      opacity: 0.9;
+    }
+
+    .sbi-pro-tagline {
+      font-size: 0.85rem;
+      color: $theme-muted;
+    }
+  }
+
+  .sbi-pro-progress-bar {
+    height: 8px;
+    border-radius: 4px;
+    background: $theme-border-muted;
+    overflow: hidden;
+
+    .sbi-pro-progress-fill {
+      height: 100%;
+      background: $theme-primary;
+      transition: width 0.3s ease;
+    }
+  }
+
+  .sbi-pro-status-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .sbi-pro-empty-state {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    color: $theme-muted;
+
+    .sbi-pro-empty-icon {
+      font-size: 3rem;
+      opacity: 0.4;
+      margin-bottom: 0.75rem;
+    }
+
+    .sbi-pro-empty-message {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sbi-pro-empty-hint {
+      font-size: 0.875rem;
+      opacity: 0.85;
+    }
+  }
+
+  .sbi-pro-finger-card {
+    transition: box-shadow 0.2s, border-color 0.2s;
+
+    &.sbi-pro-finger-done {
+      border-left: 4px solid $theme-success;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    &.sbi-pro-finger-pending {
+      border-left: 4px dashed $theme-muted;
+      background: $theme-bg-very-light;
+    }
+  }
+
+  .sbi-pro-action-required {
+    border-start: 4px solid $theme-warning;
+  }
+
+  .sbi-pro-sticky-submit {
+    position: sticky;
+    bottom: 0;
+    background: $theme-surface;
+    border-top: 1px solid $theme-border-muted;
+    padding: 1rem;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.06);
+    z-index: 10;
+  }
+
+  .sbi-pro-report-section {
+    .sbi-pro-section-icon {
+      font-size: 1.25rem;
+    }
+  }
+
+  .sbi-pro-hand-group {
+    .sbi-pro-hand-title {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: $theme-heading;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.25rem;
+      border-bottom: 1px solid $theme-border-muted;
+    }
+  }
+}

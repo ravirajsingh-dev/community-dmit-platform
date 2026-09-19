@@ -1,0 +1,111 @@
+@use "../variables" as *;
+
+// ============================================
+// TABLES
+// ============================================
+
+.table {
+  border-collapse: separate;
+  border-spacing: 0;
+
+  thead {
+    th {
+      background-color: $dashboard-bg;
+      color: $text-primary;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 1rem;
+      border-bottom: 2px solid $dashboard-border-color;
+      border-top: none;
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.2s ease;
+      border-bottom: 1px solid $dashboard-secondary-color;
+
+      &:hover {
+        background-color: $dashboard-bg;
+      }
+
+      td {
+        padding: 1rem;
+        color: $text-secondary;
+        font-size: 0.9375rem;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+
+// React Data Table Component
+.rdt_Table {
+  border-radius: $radius-lg;
+  overflow: hidden;
+  border: 1px solid $dashboard-border-color;
+}
+
+.rdt_TableHead {
+  background-color: $dashboard-bg;
+
+  .rdt_TableHeadRow {
+    border-bottom: 2px solid $dashboard-border-color;
+
+    .rdt_TableCol {
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: $text-primary;
+      padding: 1rem;
+    }
+  }
+}
+
+.rdt_TableBody {
+  .rdt_TableRow {
+    border-bottom: 1px solid $dashboard-secondary-color;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $dashboard-bg;
+    }
+
+    .rdt_TableCell {
+      padding: 1rem;
+      color: $text-secondary;
+      font-size: 0.9375rem;
+    }
+  }
+}
+
+.table-filter-section {
+  padding: 1rem 0;
+  border-bottom: 1px solid $dashboard-border-color;
+  margin-bottom: 1.5rem;
+}
+
+.table-link-cell {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  color: $accent-500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: $accent-600;
+    text-decoration: underline;
+  }
+}
+
+.admin-table-shell {
+  border: 1px solid $dashboard-border-color;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  background: $dashboard-primary-color;
+}

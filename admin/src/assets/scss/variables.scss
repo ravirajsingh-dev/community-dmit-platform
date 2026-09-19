@@ -1,0 +1,66 @@
+// ============================================
+// COLOR VARIABLES
+// ============================================
+
+// Primary Colors - Muted Blue/Indigo
+$accent-50: #eef2ff;
+$accent-100: #e0e7ff;
+$accent-200: #c7d2fe;
+$accent-300: #a5b4fc;
+$accent-400: #818cf8;
+$accent-500: #6366f1;
+$accent-600: #4f46e5;
+$accent-700: #4338ca;
+$accent-800: #3730a3;
+$accent-900: #312e81;
+
+// Dashboard Colors
+$dashboard-bg: #f8fafc;
+$dashboard-primary-color: #ffffff;
+$dashboard-secondary-color: #f1f5f9;
+$dashboard-border-color: #e2e8f0;
+$selected-sidebar-color: #e2e8f0;
+
+// Text Colors
+$text-primary: #0f172a;
+$text-secondary: #475569;
+$dashboard-text-muted: #94a3b8; // Renamed to avoid Bootstrap conflict
+$text-light: #cbd5e1;
+
+// Semantic Colors
+$success-500: #22c55e;
+$success-600: #16a34a;
+$warning-500: #f59e0b;
+$error-500: #ef4444;
+$error-600: #dc2626;
+$info-500: #3b82f6;
+
+// ============================================
+// SPACING
+// ============================================
+
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-2xl: 48px;
+
+// ============================================
+// BORDER RADIUS
+// ============================================
+
+$radius-sm: 6px;
+$radius-md: 8px;
+$radius-lg: 12px;
+$radius-xl: 16px;
+$radius-full: 9999px;
+
+// ============================================
+// SHADOWS
+// ============================================
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);

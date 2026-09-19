@@ -1,0 +1,142 @@
+@use "../variables" as *;
+
+// ============================================
+// PAGINATION
+// ============================================
+
+.admin-pi-table-pagination {
+  border-radius: $radius-lg;
+  background: $dashboard-primary-color;
+  box-shadow: $shadow-sm;
+  border: 1px solid $dashboard-border-color;
+  font-size: 0.9375rem;
+  padding: $spacing-md $spacing-lg;
+  margin-top: $spacing-lg;
+  row-gap: $spacing-md;
+
+  .admin-pi-table-pagination-meta {
+    display: flex;
+    align-items: center;
+
+    .dropdown {
+      display: inline-flex;
+      align-items: center;
+      gap: $spacing-sm;
+      flex-wrap: wrap;
+    }
+
+    .admin-pi-pagination-label {
+      color: $text-secondary;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .dropdown-toggle {
+      min-width: 70px;
+      border-radius: $radius-md;
+      border-color: $accent-300;
+      color: $accent-600;
+      font-weight: 600;
+      background: linear-gradient(
+        135deg,
+        rgba($accent-50, 0.8) 0%,
+        rgba($dashboard-primary-color, 1) 100%
+      );
+    }
+  }
+
+  .admin-pi-table-pagination-controller {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+
+    ul {
+      margin: 0 !important;
+      display: flex;
+      gap: $spacing-sm;
+      list-style: none;
+      padding: 0;
+
+      li {
+        border-radius: $radius-md !important;
+
+        .page-link {
+          border: 1px solid $dashboard-border-color;
+          color: $text-secondary;
+          min-width: 38px;
+          height: 38px;
+          padding: 0 $spacing-sm;
+          border-radius: $radius-md;
+          transition: all 0.2s ease;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 500;
+
+          &:hover {
+            background-color: $dashboard-secondary-color;
+            border-color: $accent-400;
+            color: $accent-600;
+          }
+        }
+      }
+
+      .active > .page-link,
+      .page-link.active {
+        z-index: 3;
+        border-radius: $radius-md;
+        background-color: $accent-500;
+        border-color: $accent-500;
+        color: white;
+        font-weight: 500;
+      }
+
+      .disabled > .page-link {
+        background-color: $dashboard-secondary-color;
+        border-color: $dashboard-border-color;
+        color: $dashboard-text-muted;
+        cursor: not-allowed;
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .admin-pi-table-pagination {
+    padding: $spacing-md;
+  }
+
+  .admin-pi-table-pagination-meta {
+    justify-content: center;
+  }
+
+  .admin-pi-table-pagination-controller {
+    justify-content: center !important;
+    padding-top: $spacing-sm;
+
+    ul {
+      gap: $spacing-xs;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .admin-pi-table-pagination {
+    padding: $spacing-sm;
+
+    .admin-pi-table-pagination-controller {
+      flex-direction: column;
+      gap: $spacing-md;
+
+      ul li .page-link {
+        min-width: 34px;
+        height: 34px;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

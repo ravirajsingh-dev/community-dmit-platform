@@ -1,0 +1,503 @@
+@use "variables" as *;
+
+// ============================================
+// UTILITY CLASSES
+// ============================================
+
+// Position
+.position-relative {
+  position: relative;
+}
+
+// Section spacing and rhythm
+.page-section {
+  padding-top: 80px;
+  padding-bottom: 80px;
+
+  &.page-section--divided {
+    border-top: 1px solid $theme-border-muted;
+  }
+}
+
+// Dashboard stat visuals — use .stat-value / .stat-label in markup where needed
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: $theme-muted !important;
+}
+
+.card-profile-container .card-body .text-muted,
+.card-profile-container .card-body small {
+  color: $theme-muted !important;
+}
+
+// GLOBAL ICON COLOR — default muted, active gold
+.icon-primary,
+.navigation-item.active .navigation-icon,
+.navigation-item.active .navigation-label {
+  color: #d4af37 !important;
+}
+
+.icon-muted,
+.navigation-item .navigation-icon,
+.navigation-item .navigation-label {
+  color: #9aa7b2 !important;
+}
+
+.navigation-item:hover .navigation-icon,
+.navigation-item:hover .navigation-label {
+  color: #f6d365 !important;
+}
+
+// Theme-based card border accents (dashboard, status cards)
+.card-border-success {
+  border-left: 4px solid $theme-success !important;
+}
+
+.card-border-warning {
+  border-left: 4px solid $theme-warning !important;
+}
+
+// Payment processing overlay (theme text, neutral dark overlay)
+.register-payment-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba($black, 0.7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  color: $theme-text-on-surface;
+
+  .register-payment-overlay-spinner {
+    margin-bottom: 20px;
+  }
+
+  .register-payment-overlay-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .register-payment-overlay-subtitle {
+    font-size: 14px;
+    margin-top: 10px;
+    opacity: 0.9;
+  }
+}
+
+// Section Title
+.section-title {
+  & span {
+    color: $theme-primary;
+    font-size: 18px;
+    font-family: $futura_hv;
+    line-height: 1.6;
+    display: inline-block;
+    &.section-label {
+      position: relative;
+      &::before {
+        content: "";
+        background-color: $theme-secondary;
+        position: absolute;
+        left: 0;
+        top: 6px;
+        width: 3px;
+        height: 20px;
+        z-index: 1;
+      }
+    }
+  }
+  & h2 {
+    color: $theme-heading;
+    font-size: 50px;
+    line-height: 1.1;
+    font-family: $cerebri-bold;
+    @media #{$lg} {
+      font-size: 35px;
+    }
+    @media #{$xs} {
+      font-size: 27px;
+    }
+    @media #{$sm} {
+      font-size: 27px;
+    }
+  }
+}
+
+// Margin & Padding Utilities
+/*-- Margin Top --*/
+@for $i from 1 through 40 {
+  .mt-#{5 * $i} {
+    margin-top: 5px * $i;
+  }
+}
+
+/*-- Margin Bottom --*/
+@for $i from 1 through 40 {
+  .mb-#{5 * $i} {
+    margin-bottom: 5px * $i;
+  }
+}
+
+/*-- Margin Left --*/
+@for $i from 1 through 40 {
+  .ml-#{5 * $i} {
+    margin-left: 5px * $i;
+  }
+}
+
+/*-- Margin Right --*/
+@for $i from 1 through 40 {
+  .mr-#{5 * $i} {
+    margin-right: 5px * $i;
+  }
+}
+
+/*-- Padding Top --*/
+@for $i from 1 through 40 {
+  .pt-#{5 * $i} {
+    padding-top: 5px * $i;
+  }
+}
+
+/*-- Padding Bottom --*/
+@for $i from 1 through 40 {
+  .pb-#{5 * $i} {
+    padding-bottom: 5px * $i;
+  }
+}
+
+/*-- Padding Left --*/
+@for $i from 1 through 40 {
+  .pl-#{5 * $i} {
+    padding-left: 5px * $i;
+  }
+}
+
+/*-- Padding Right --*/
+@for $i from 1 through 40 {
+  .pr-#{5 * $i} {
+    padding-right: 5px * $i;
+  }
+}
+
+// Tile Utilities
+.copy-action-icon {
+  margin-left: 10px;
+  cursor: pointer;
+
+  &:active {
+    color: $theme-danger;
+  }
+}
+
+.card-heading-styled {
+  display: flex;
+  align-items: center;
+  color: $theme-primary;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1rem auto 2rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba($theme-border, 0.08);
+  border-radius: 8px;
+  border-left: 4px solid $theme-primary;
+  border-right: 4px solid $theme-primary;
+  position: relative;
+  max-width: max-content;
+  text-align: center;
+  width: 100%;
+
+  .heading-underline-decoration {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        90deg,
+        $theme-primary 0%,
+        rgba($theme-primary, 0) 100%
+      );
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 100%;
+      border-bottom: 3px solid $theme-primary;
+    }
+  }
+}
+
+.form-error-message {
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 0.875em;
+  color: $invalid-color !important;
+}
+
+.wallet-label {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.wallet-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+// Mobile Bottom Navigation
+$mobile-footer-height: 64px;
+
+.mobile-navigation-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: $mobile-footer-height;
+  background: $theme-surface;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 12px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  border-top: 1px solid $theme-border;
+  // padding-bottom: env(safe-area-inset-bottom);
+
+  .navigation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $theme-text-muted-light;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    .navigation-icon {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .navigation-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: $theme-secondary;
+    }
+
+    &.active {
+      color: $theme-text-on-primary;
+      background: $theme-hover;
+      .navigation-icon,
+      .navigation-label {
+        color: $theme-primary !important;
+      }
+    }
+
+    &.btn {
+      background: transparent;
+      border: none;
+      outline: none;
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    height: 56px;
+    padding: 8px 0;
+
+    .navigation-item {
+      padding: 4px 8px;
+
+      .navigation-icon {
+        font-size: 1.2rem;
+      }
+
+      .navigation-label {
+        font-size: 0.65rem;
+      }
+    }
+  }
+
+  @media (max-width: 400px) {
+    .navigation-item {
+      padding: 6px 6px;
+
+      .navigation-icon {
+        font-size: 1.2rem;
+      }
+
+      .navigation-label {
+        font-size: 0.65rem;
+      }
+    }
+  }
+}
+
+// @media (max-width: 767px) {
+//   body {
+//     padding-bottom: calc(
+//       #{$mobile-footer-height} + env(safe-area-inset-bottom)
+//     );
+//   }
+// }
+
+.authentication-button-group {
+  .navigation-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $theme-text-muted-light;
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    .navigation-icon {
+      font-size: 1.4rem;
+      margin-bottom: 4px;
+    }
+
+    .navigation-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
+
+    &:hover {
+      color: $theme-secondary;
+      background: $theme-hover;
+    }
+
+    &.active {
+      color: $theme-text-on-primary;
+      background: $theme-hover;
+      .navigation-icon,
+      .navigation-label {
+        color: $theme-primary !important;
+      }
+    }
+    &.btn {
+      background: transparent;
+      border: none;
+      outline: none;
+      box-shadow: none;
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  @media (max-height: 500px) and (orientation: landscape) {
+    padding: 8px 0;
+
+    .navigation-item {
+      padding: 4px 8px;
+
+      .navigation-icon {
+        font-size: 1.2rem;
+      }
+
+      .navigation-label {
+        font-size: 0.65rem;
+      }
+    }
+  }
+}
+
+// Inline style replacements
+.cursor-clickable {
+  cursor: pointer;
+}
+
+.text-preserve-line-breaks {
+  white-space: pre-line;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animation-fade-in-up {
+  visibility: visible;
+  animation-delay: 0.3s;
+  animation-name: fadeInUp;
+  animation-duration: 0.6s;
+  animation-fill-mode: both;
+}
+
+.qr-code-wrapper {
+  display: inline-block;
+  padding: 20px;
+  background-color: $theme-text-on-surface;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.qr-code-image-display {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
+
+.qr-code-details-wrapper {
+  background-color: $theme-bg-very-light;
+  padding: 15px;
+  border-radius: 6px;
+}
+
+.news-thumbnail-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.loading-skeleton-container {
+  width: 100%;
+}
+
+.footer-skeleton-spacing-bottom {
+  margin-top: 8px;
+  margin-bottom: 20px;
+}
+
+.footer-skeleton-spacing-top {
+  margin-top: 8px;
+}

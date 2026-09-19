@@ -1,0 +1,136 @@
+@use "../variables" as *;
+
+// ============================================
+// CARDS
+// ============================================
+
+.main-card {
+  position: relative;
+  background: rgba(20, 38, 63, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  padding: 1.25rem 1.5rem;
+  margin: 20px 0;
+  transition: all 0.25s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+  }
+}
+
+
+// Profile Card
+.card-profile-container {
+  padding: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+
+  .card-profile {
+    background: rgba(20, 38, 63, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    padding: 2rem;
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.25s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .card-profile-container {
+    padding: 0.5rem;
+
+    .card-profile {
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+  }
+}
+
+.card-settings-layout {
+  padding: 2rem 1rem;
+  color: $theme-primary !important;
+
+  .card-settings-link {
+    text-decoration: none;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+
+      .card-settings {
+        border-color: $theme-primary;
+      }
+    }
+
+    &.active {
+      .card-settings {
+        background: $theme-primary;
+        border-color: $theme-primary;
+        color: $theme-primary !important;
+
+        .card-title,
+        .text-muted {
+          color: $theme-primary !important;
+        }
+      }
+    }
+
+    .text-muted-desc {
+      color: $theme-primary;
+    }
+  }
+
+  .card-settings {
+    border: 2px solid $theme-primary;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    background: rgba(20, 38, 63, 0.4);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    &-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $theme-primary;
+      color: $theme-surface;
+    }
+  }
+
+  .card-settings-content {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    background: rgba(20, 38, 63, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+
+    .card-settings-content {
+      padding: 1rem;
+      margin-top: 1rem;
+    }
+  }
+}

@@ -1,0 +1,80 @@
+@use "../variables" as *;
+
+// ============================================
+// BUTTONS — same color theme (executive / dark + gold)
+// ============================================
+
+$btn-radius: 8px;
+$btn-fw: 600;
+
+// Primary-style: filled gold (same as .btn-primary)
+.btn-theme {
+  color: $theme-text-on-primary !important;
+  background: linear-gradient(135deg, $theme-primary, $theme-secondary) !important;
+  font: 600 14px/1 "cerebri_sanssemibold";
+  text-transform: uppercase;
+  display: inline-block;
+  border: none !important;
+  border-radius: $btn-radius;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba($theme-primary, 0.45);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+
+  &:disabled {
+    color: $theme-text-on-surface !important;
+    background: $theme-disabled !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+// Outline style (same as .btn-secondary)
+%base-button-outline {
+  color: $theme-primary !important;
+  background: transparent !important;
+  font: 600 14px/1 "cerebri_sanssemibold";
+  text-transform: uppercase;
+  display: inline-block;
+  border: 1px solid $theme-primary !important;
+  border-radius: $btn-radius;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover:not(:disabled) {
+    background: $theme-hover !important;
+    color: $theme-secondary !important;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba($theme-primary, 0.25);
+  }
+
+  &:disabled {
+    color: $theme-muted !important;
+    border-color: $theme-disabled !important;
+    cursor: not-allowed;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+}
+
+.btn-common {
+  @extend %base-button-outline;
+  padding: 0.5rem 1rem;
+}
+
+.btn-back {
+  @extend %base-button-outline;
+  padding: 0.4rem 0.75rem;
+  margin-bottom: 5px;
+}
+
+

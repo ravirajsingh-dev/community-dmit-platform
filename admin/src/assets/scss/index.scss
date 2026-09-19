@@ -1,0 +1,26 @@
+// ============================================
+// MAIN SCSS ENTRY POINT
+// ============================================
+// Uses @use (modern Sass) - Bootstrap loaded via precompiled CSS in index.jsx
+
+@use "./variables" as *;
+@use "./layout/layout";
+@use "./layout/header";
+@use "./layout/sidebar";
+@use "./components/buttons";
+@use "./components/forms";
+@use "./components/tables";
+@use "./components/pagination";
+@use "./components/loader";
+@use "./components/cards";
+@use "./components/modal";
+@use "./components/breadcrumb";
+@use "./components/badges";
+@use "./components/gallery";
+@use "./components/auth";
+@use "./components/family-tree";
+@use "./pages/epin";
+@use "./pages/designations";
+@use "./pages/users";
+@use "./pages/appointments";
+@use "./utilities";

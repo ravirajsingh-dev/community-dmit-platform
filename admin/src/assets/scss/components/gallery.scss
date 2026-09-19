@@ -1,0 +1,88 @@
+@use "../variables" as *;
+
+// ============================================
+// GALLERY
+// ============================================
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.gallery-item {
+  border: 1px solid $dashboard-border-color;
+  border-radius: $radius-lg;
+  overflow: hidden;
+  position: relative;
+  background-color: $dashboard-primary-color;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+}
+
+.gallery-item-image-wrapper {
+  position: relative;
+  padding-top: 75%;
+  overflow: hidden;
+  background-color: $dashboard-bg;
+}
+
+.gallery-item-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-item-content {
+  padding: 1rem;
+}
+
+.gallery-item-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: $text-primary;
+  font-size: 1rem;
+}
+
+.gallery-item-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-item-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.image-preview {
+  max-width: 100%;
+  max-height: 200px;
+  border-radius: $radius-md;
+  margin-top: 0.5rem;
+  border: 1px solid $dashboard-border-color;
+}
+
+.slider-image-preview {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: $radius-md;
+  border: 1px solid $dashboard-border-color;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+}

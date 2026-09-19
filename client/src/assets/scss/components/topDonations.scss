@@ -1,0 +1,185 @@
+@use "../variables" as *;
+
+/* ===================================
+   TOP DONATIONS – Theme-aware, transparent cards, smooth scroll
+=================================== */
+
+.top-donations-container {
+  width: 100%;
+  min-height: 280px;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  border-radius: 12px;
+  padding: 0;
+  border: 1px solid rgba($theme-primary, 0.2);
+  box-shadow: 0 4px 24px rgba($theme-primary, 0.08);
+  animation: topDonationsFadeIn 0.5s ease-out;
+
+  .top-donations-loading,
+  .top-donations-empty {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 260px;
+    color: $theme-muted;
+    font-size: 15px;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .top-donations-marquee {
+    width: 100%;
+    min-height: 260px;
+    max-height: 320px;
+    overflow: hidden;
+    position: relative;
+
+    /* Fade edges for smooth infinite scroll (theme-based) */
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 48px;
+      pointer-events: none;
+      z-index: 2;
+    }
+    &::before {
+      top: 0;
+      background: linear-gradient(
+        to bottom,
+        $theme-surface 0%,
+        transparent 100%
+      );
+    }
+    &::after {
+      bottom: 0;
+      background: linear-gradient(
+        to top,
+        $theme-surface 0%,
+        transparent 100%
+      );
+    }
+  }
+
+  .top-donations-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    padding: 12px 4px;
+
+    &.animate {
+      animation: topDonationsScroll 35s linear infinite;
+    }
+  }
+
+  /* Transparent card – not list-like */
+  .top-donations-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 18px;
+    background: rgba($theme-primary, 0.06);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba($theme-primary, 0.2);
+    border-radius: 10px;
+    min-height: 56px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease,
+      border-color 0.25s ease, background 0.25s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      background: rgba($theme-primary, 0.1);
+      border-color: rgba($theme-primary, 0.35);
+      box-shadow: 0 6px 20px rgba($theme-primary, 0.15);
+    }
+
+    .top-donations-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: $theme-heading;
+      flex: 1;
+      text-align: left;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding-right: 12px;
+    }
+
+    .top-donations-amount {
+      font-size: 17px;
+      font-weight: 600;
+      color: $theme-primary;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+  }
+}
+
+/* Entrance motion */
+@keyframes topDonationsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Vertical scroll – theme-consistent */
+@keyframes topDonationsScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .top-donations-container {
+    min-height: 240px;
+
+    .top-donations-marquee {
+      min-height: 220px;
+      max-height: 280px;
+    }
+
+    .top-donations-loading,
+    .top-donations-empty {
+      min-height: 220px;
+      font-size: 14px;
+    }
+
+    .top-donations-item {
+      padding: 12px 14px;
+      min-height: 50px;
+
+      .top-donations-name {
+        font-size: 14px;
+      }
+
+      .top-donations-amount {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .top-donations-container {
+    border-radius: 10px;
+    min-height: 220px;
+
+    .top-donations-item {
+      padding: 10px 12px;
+      min-height: 48px;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@actions/*": ["./src/actions/*"],
+      "@middlewares/*": ["./src/middlewares/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@config/*": ["./src/config/*"],
+      "@reducers/*": ["./src/reducers/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@views/*": ["./src/views/*"],
+      "@layout/*": ["./src/views/Layout/*"]
+    }
+  }
+}

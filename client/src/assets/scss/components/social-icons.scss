@@ -1,0 +1,139 @@
+@use "../variables" as *;
+
+/* ===================================
+   SOCIAL ICONS - UNIFIED STYLING
+   Single source of truth for all social media icons
+=================================== */
+
+.social-icons-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.social-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid $theme-secondary;
+  color: $theme-primary;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  position: relative;
+
+  // Subtle hover effects
+  &:hover {
+    background: $theme-primary;
+    color: $theme-text-on-primary;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 12px rgba($theme-primary, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0) scale(1);
+  }
+
+  // Focus state for accessibility
+  &:focus {
+    outline: 2px solid $theme-primary;
+    outline-offset: 2px;
+  }
+
+  .social-icon {
+    display: block;
+  }
+}
+
+/* ===================================
+   SIZE VARIANTS
+=================================== */
+
+// Small (32px)
+.social-icons-small {
+  gap: 0.75rem;
+
+  .social-icon-link {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+}
+
+// Medium (40px) - Default
+.social-icons-medium {
+  gap: 1rem;
+
+  .social-icon-link {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+// Large (48px)
+.social-icons-large {
+  gap: 1.25rem;
+
+  .social-icon-link {
+    width: 48px;
+    height: 48px;
+    font-size: 1.2rem;
+  }
+}
+
+/* ===================================
+   CONTEXT-SPECIFIC OVERRIDES
+   (Minimal, only when necessary)
+=================================== */
+
+// Header social bar context
+.layout-header-social-inner {
+  .social-icons-wrapper {
+    gap: 1rem;
+  }
+}
+
+// Footer context
+.layout-footer-social-info {
+  .social-icons-wrapper {
+    gap: 1rem;
+  }
+}
+
+// Contact Us page context
+.contact-us-social-links {
+  .social-icons-wrapper {
+    gap: 1rem;
+  }
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+=================================== */
+
+@media (max-width: 575px) {
+  .social-icons-wrapper {
+    gap: 0.75rem;
+  }
+
+  .social-icons-small .social-icon-link {
+    width: 28px;
+    height: 28px;
+    font-size: 0.8rem;
+  }
+
+  .social-icons-medium .social-icon-link {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+
+  .social-icons-large .social-icon-link {
+    width: 42px;
+    height: 42px;
+    font-size: 1rem;
+  }
+}

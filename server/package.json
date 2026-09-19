@@ -1,0 +1,37 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:status-transition": "node tests/userStatusTransitionService.test.js",
+    "test:designation-eligibility": "node tests/designationEligibilityService.test.js",
+    "test:rank": "node scripts/rankTest.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.970.0",
+    "axios": "^1.13.2",
+    "bcryptjs": "^3.0.3",
+    "body-parser": "^2.2.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "express-validator": "^7.3.1",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.4",
+    "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "qrcode": "^1.5.4",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

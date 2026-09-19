@@ -1,0 +1,140 @@
+@use "../variables" as *;
+
+.family-tree {
+  &__scroll {
+    overflow: auto;
+    padding: 20px;
+    min-height: 600px;
+  }
+
+  /* ======================
+     Tree structure
+  ====================== */
+  &__ul,
+  &__ul ul {
+    padding-top: 20px;
+    position: relative;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  &__ul li {
+    list-style: none;
+    text-align: center;
+    position: relative;
+    padding: 15px 20px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__ul li::before,
+  &__ul li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border-top: 1px solid $theme-border-muted;
+    width: 50%;
+    height: 20px;
+  }
+
+  &__ul li::before {
+    right: 50%;
+  }
+
+  &__ul li::after {
+    left: 50%;
+    border-left: 1px solid $theme-border-muted;
+  }
+
+  &__ul li:only-child::before,
+  &__ul li:only-child::after {
+    display: none;
+  }
+
+  /* ❗ FIX 1: last-child ka border mat udao completely */
+  &__ul li:first-child::before {
+    border-top: none;
+  }
+
+  &__ul li:last-child::after {
+    border-top: none;
+    /* border-left rehne do – yahi vertical line thi jo udd rahi thi */
+  }
+
+  &__ul ul::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    border-left: 1px solid $theme-border-muted;
+    height: 20px;
+  }
+
+  /* ======================
+     Nodes
+  ====================== */
+  &__node {
+    display: inline-block;
+    position: relative;
+  }
+
+  /* ❗ FIX 2: Husband → Wife vertical connector */
+  &__main-person::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    height: 12px;
+    // border-left: 1px solid $theme-border-muted;
+  }
+
+  &__wives {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    align-items: flex-start;
+    position: relative;
+    padding-top: 12px;
+  }
+
+  /* Horizontal connector for multiple wives */
+  &__wives::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    // border-top: 1px solid $theme-border-muted;
+  }
+
+  &__wife-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  /* Vertical line into each wife */
+  &__wife-block::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    height: 12px;
+    border-left: 1px solid $theme-border-muted;
+  }
+
+  /* ======================
+     Person Card
+  ====================== */
+  // &__person {
+  //   min-width: 160px;
+  //   border-radius: 10px;
+  //   border: 1px solid #dee2e6;
+  //   background: #fff;
+  // }
+
+  // &__person--primary {
+  //   border-color: rgba(13, 110, 253, 0.35);
+  //   background: rgba(13, 110, 253, 0.06);
+  // }
+}

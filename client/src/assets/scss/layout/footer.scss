@@ -1,0 +1,160 @@
+@use "../variables" as *;
+
+.layout-footer-area {
+  background: linear-gradient(180deg, transparent 0%, rgba(15, 27, 45, 0.6) 100%);
+  text-align: center;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Main Footer */
+.layout-footer-main {
+  padding: 90px 0 60px;
+}
+
+/* Center Wrapper */
+.layout-footer-center-wrapper {
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Logo */
+.layout-footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  margin-bottom: 20px;
+
+  img {
+    height: 110px;
+    filter: drop-shadow(0 0 12px rgba($theme-primary, 0.4));
+  }
+
+  .logo-spinner {
+    min-height: 110px;
+  }
+}
+
+/* Brand */
+.layout-footer-brand {
+  color: $theme-primary;
+  font-size: 26px;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+}
+
+.layout-footer-subtitle {
+  color: $theme-text-muted-light;
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+/* Navigation Links */
+.layout-footer-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.layout-footer-nav-link {
+  color: $theme-primary;
+  font-size: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+
+  &:hover {
+    color: $theme-secondary;
+    text-decoration: underline;
+  }
+}
+
+.layout-footer-nav-separator {
+  color: rgba($theme-primary, 0.4);
+  font-size: 20px;
+}
+
+/* Contact */
+.layout-footer-contact {
+  p {
+    color: $theme-text-muted-lighter;
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 6px;
+
+    span {
+      color: $theme-primary;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Scroll Button */
+.layout-scroll-up-button {
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, $theme-primary, $theme-secondary);
+  color: $theme-text-on-primary;
+  border: none;
+  z-index: 999;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba($theme-primary, 0.45);
+  }
+}
+
+/* Bottom Footer */
+.layout-footer-bottom {
+  background: rgba(20, 38, 63, 0.5);
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.layout-footer-border-line {
+  height: 1px;
+  background: $theme-primary;
+  opacity: 0.6;
+}
+
+.layout-footer-copyright-text {
+  padding: 20px 0;
+
+  p {
+    color: $theme-primary;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    margin: 0;
+  }
+
+  .layout-footer-link-web {
+    font-weight: 600;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .layout-footer-logo {
+    min-height: 90px;
+
+    img {
+      height: 90px;
+    }
+
+    .logo-spinner {
+      min-height: 90px;
+    }
+  }
+
+  .layout-footer-brand {
+    font-size: 22px;
+  }
+}

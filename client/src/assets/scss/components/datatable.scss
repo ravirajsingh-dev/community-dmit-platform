@@ -1,0 +1,73 @@
+// React Data Table — transparent glass (neural bg dikhe)
+@use "../variables" as *;
+
+.rdt_Table {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06) !important;
+  background: rgba(20, 38, 63, 0.35) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.rdt_TableHeadRow {
+  font-size: 14px;
+  font-weight: 600;
+  background: rgba(26, 54, 93, 0.5) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #d4af37 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.rdt_TableBody {
+  background: transparent !important;
+}
+
+.rdt_TableRow {
+  background: transparent !important;
+  color: #e6edf5 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(212, 175, 55, 0.08) !important;
+  }
+}
+
+.rdt_TableCell,
+.rdt_TableCol {
+  color: #e6edf5 !important;
+  border-color: rgba(255, 255, 255, 0.06) !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.rdt_TableHead {
+  border-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.rdt_TableWrapper {
+  overflow-x: auto;
+}
+
+.rdt_Pagination {
+  background: rgba(26, 54, 93, 0.4) !important;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+  color: #e6edf5 !important;
+
+  button {
+    background: rgba(20, 38, 63, 0.5) !important;
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #d4af37 !important;
+    border-radius: 8px !important;
+
+    &:hover:not(:disabled) {
+      background: rgba(212, 175, 55, 0.15) !important;
+      color: #f6d365 !important;
+    }
+  }
+}

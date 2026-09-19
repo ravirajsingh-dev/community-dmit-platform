@@ -1,0 +1,82 @@
+@use "../variables" as *;
+
+// ============================================
+// BREADCRUMB
+// ============================================
+
+.bread-crumb {
+  background-color: $dashboard-primary-color;
+  padding: $spacing-md $spacing-lg;
+  border-radius: $radius-lg;
+  margin-bottom: $spacing-md;
+  box-shadow: $shadow-sm;
+  border: 1px solid $dashboard-border-color;
+
+  a {
+    color: $accent-500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $accent-600;
+      text-decoration: none;
+    }
+  }
+
+  .breadcrumb {
+    margin: 0 !important;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: $spacing-xs;
+  }
+
+  .breadcrumb-item {
+    color: $text-secondary;
+    font-size: 15px;
+    line-height: 1.4;
+    word-break: break-word;
+
+    &.active {
+      color: $text-primary;
+      font-weight: 500;
+    }
+  }
+}
+
+.bread-crumb .breadcrumb-item + .breadcrumb-item::before {
+  content: "/";
+  color: $dashboard-text-muted;
+  padding: 0 $spacing-sm;
+}
+
+@media (max-width: 768px) {
+  .bread-crumb {
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-md;
+
+    .breadcrumb-item {
+      font-size: 14px;
+    }
+
+    .breadcrumb-item + .breadcrumb-item::before {
+      padding: 0 $spacing-xs;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .bread-crumb {
+    padding: $spacing-sm;
+
+    .breadcrumb {
+      row-gap: 2px;
+    }
+
+    .breadcrumb-item {
+      font-size: 13px;
+      line-height: 1.35;
+    }
+  }
+}

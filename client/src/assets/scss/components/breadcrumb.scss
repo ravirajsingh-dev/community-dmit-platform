@@ -1,0 +1,84 @@
+@use "../variables" as *;
+
+//breadcrumb-area
+.breadcrumb-area {
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border-bottom: none;
+  padding: 1rem 0;
+}
+// PAGE TITLES — luxury gold with glow
+.breadcrumb-title h2,
+.page-title {
+  color: #d4af37 !important;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  line-height: 1.5;
+  font-family: $cerebri-semi;
+  text-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+  @media #{$md} {
+    font-size: 40px;
+  }
+  @media #{$xs} {
+    font-size: 32px;
+  }
+  @media #{$sm} {
+    font-size: 32px;
+  }
+}
+.breadcrumb-list {
+  display: flex;
+  justify-content: center;
+
+  & ul {
+    & li {
+      display: inline-block;
+      color: $theme-primary;
+      font-size: 24px;
+      font-family: $cerebri-medium;
+      position: relative;
+      padding: 0 20px;
+      @media #{$xs} {
+        font-size: 20px;
+      }
+      @media #{$sm} {
+        font-size: 20px;
+      }
+
+      // Add double separator after each <li> except the last one
+      &:not(:last-child)::after {
+        content: "||"; // Add double vertical bars
+        color: $theme-primary; // Match the color
+        position: absolute;
+        right: -10px; // Adjust position to center between items
+        top: 50%;
+        transform: translateY(-50%); // Vertically center the separator
+        font-size: 24px; // Match font size
+        font-family: $cerebri-medium; // Match font family
+        padding: 0 5px; // Add spacing around the separator
+        @media #{$xs} {
+          font-size: 20px;
+        }
+        @media #{$sm} {
+          font-size: 20px;
+        }
+      }
+
+      & a {
+        color: $theme-primary;
+        font-size: 24px;
+        font-family: $cerebri-medium;
+        display: inline-block;
+        @media #{$xs} {
+          font-size: 20px;
+        }
+        @media #{$sm} {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

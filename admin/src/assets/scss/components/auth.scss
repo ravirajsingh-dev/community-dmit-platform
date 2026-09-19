@@ -1,0 +1,106 @@
+@use "../variables" as *;
+
+// ============================================
+// AUTHENTICATION
+// ============================================
+
+.auth-container {
+  min-height: 100vh;
+  background: $dashboard-bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-lg;
+}
+
+.e2e-auth-login {
+  min-height: 100vh;
+  align-items: center;
+  padding: $spacing-lg 0;
+  justify-content: center;
+
+  .e2e-auth-login-card {
+    background-color: $dashboard-primary-color;
+    border-radius: $radius-xl;
+    box-shadow: $shadow-xl;
+    color: $text-primary;
+    padding: $spacing-2xl;
+    border: 1px solid $dashboard-border-color;
+    max-width: 500px;
+    width: 100%;
+  }
+}
+
+.registration-form {
+  div {
+    position: relative;
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    select {
+      padding: $spacing-md;
+      box-shadow: $shadow-sm;
+      border: 1px solid $dashboard-border-color;
+      border-radius: $radius-md;
+      transition: all 0.2s ease;
+      font-size: 0.9375rem;
+
+      &:focus {
+        border-color: $accent-500;
+        box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        outline: none;
+      }
+
+      &::placeholder {
+        color: $dashboard-text-muted;
+      }
+    }
+
+    select {
+      cursor: pointer;
+    }
+  }
+}
+
+.auth-lable {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $text-primary;
+  font-weight: 500;
+  margin-bottom: $spacing-sm;
+  font-size: 0.9375rem;
+}
+
+.auth-lable-icon {
+  color: $accent-600;
+}
+
+.auth-label-icon {
+  width: 30px;
+  margin-right: $spacing-sm;
+}
+
+.user-auth-heading {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin-bottom: $spacing-lg;
+
+  .secondary-color-border {
+    color: $accent-600;
+  }
+}
+
+.user-register-data-icon {
+  max-width: 120px;
+  height: auto;
+  margin-bottom: $spacing-lg;
+}
+
+.remember-me {
+  font-size: 0.875rem;
+  margin: $spacing-xl 0 $spacing-sm 0;
+  color: $dashboard-text-muted;
+}

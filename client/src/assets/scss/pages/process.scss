@@ -1,0 +1,161 @@
+@use "../variables" as *;
+
+/* ==================================
+   PROCESS SECTION – How SBI Pro Works
+================================== */
+.process-steps-section {
+  background: $theme-surface-light;
+  padding: 5rem 0;
+
+  @media (max-width: 768px) {
+    padding: 3.5rem 0;
+  }
+
+  &.process-steps-sbi .process-steps-title {
+    color: $theme-heading;
+  }
+}
+
+.process-steps-loading {
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.process-steps-header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.process-steps-tag {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: $theme-primary;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.process-steps-title {
+  font-size: clamp(1.65rem, 3.5vw, 2.35rem);
+  font-weight: 700;
+  color: $theme-primary;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.process-steps-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.process-steps-item {
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 340px;
+}
+
+.process-steps-card {
+  padding: 2rem 1.75rem;
+  background: $theme-surface;
+  border: 1px solid $theme-border-muted;
+  border-radius: 14px;
+  height: 100%;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  text-align: left;
+  position: relative;
+  border-top: 3px solid $theme-primary;
+
+  &:hover {
+    border-color: rgba($theme-primary, 0.3);
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.process-steps-num {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: $theme-primary;
+  opacity: 0.85;
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.process-steps-icon {
+  width: 52px;
+  height: 52px;
+  background: rgba($theme-primary, 0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+
+  svg {
+    width: 26px;
+    height: 26px;
+    color: $theme-primary;
+  }
+}
+
+.process-steps-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: $theme-heading;
+  margin-bottom: 0.6rem;
+  line-height: 1.35;
+}
+
+.process-steps-item-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: $theme-text;
+  margin: 0;
+}
+
+/* ==================================
+   MOBILE
+================================== */
+@media (max-width: 768px) {
+  .process-steps-section {
+    padding: 3.5rem 0;
+  }
+
+  .process-steps-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .process-steps-row {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .process-steps-item {
+    max-width: none;
+  }
+
+  .process-steps-card {
+    text-align: center;
+  }
+
+  .process-steps-icon {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .process-steps-item-title {
+    font-size: 1.05rem;
+  }
+
+  .process-steps-item-desc {
+    font-size: 0.9rem;
+  }
+}

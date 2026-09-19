@@ -1,0 +1,152 @@
+// ============================================
+// ADMIN E-PIN MANAGEMENT — Bold, attractive UI
+// ============================================
+@use "../variables" as *;
+
+.epin-admin-page {
+  .epin-stats-row {
+    margin-bottom: 1.75rem;
+  }
+
+  .epin-stat-card {
+    background: $dashboard-primary-color;
+    border: 2px solid $dashboard-border-color;
+    border-radius: 16px;
+    padding: 1.35rem 1.25rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    height: 100%;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .epin-stat-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: $text-secondary;
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .epin-stat-value {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      display: block;
+    }
+
+    &.epin-stat-card--total {
+      border-left: 4px solid $accent-500;
+      .epin-stat-value { color: $accent-600; }
+    }
+    &.epin-stat-card--unused {
+      border-left: 4px solid $success-500;
+      .epin-stat-value { color: $success-600; }
+    }
+    &.epin-stat-card--used {
+      border-left: 4px solid $text-secondary;
+      .epin-stat-value { color: $text-secondary; }
+    }
+  }
+
+  .epin-actions-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .epin-actions-col .btn {
+    font-weight: 600;
+    padding: 0.6rem 1rem;
+    border-radius: 10px;
+  }
+
+  .epin-code-cell {
+    font-family: "SF Mono", "Monaco", "Consolas", monospace;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 0.4rem 0.75rem;
+    border-radius: 8px;
+    background: linear-gradient(135deg, $accent-50 0%, $accent-100 100%);
+    border: 1px solid $accent-300;
+    color: $accent-800;
+  }
+
+  .epin-filters-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+
+  .epin-filters-card {
+    background: linear-gradient(180deg, $accent-50 0%, $dashboard-secondary-color 100%);
+    border: 2px solid $accent-200;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+// Form pages: Create, Bulk Transfer, Bulk Delete
+.epin-form-page {
+  .epin-form-card {
+    border-radius: 16px;
+    border: 2px solid $accent-200;
+    box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+    overflow: hidden;
+  }
+
+  .epin-form-card-header {
+    padding: 1.25rem 1.75rem;
+    background: linear-gradient(135deg, $accent-100 0%, $accent-50 50%, $dashboard-secondary-color 100%);
+    border-bottom: 2px solid $accent-200;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .epin-form-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, $accent-200 0%, $accent-100 100%);
+    color: $accent-700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+  }
+
+  .epin-form-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $text-primary;
+    margin: 0;
+  }
+
+  .epin-form-card-body {
+    padding: 1.75rem;
+  }
+
+  .epin-form-card--danger {
+    border-color: #fecaca;
+    box-shadow: 0 8px 24px rgba(239, 68, 68, 0.12);
+
+    .epin-form-card-header {
+      background: linear-gradient(135deg, #fee2e2 0%, #fef2f2 50%, #fef2f2 100%);
+      border-bottom-color: #fecaca;
+    }
+    .epin-form-card-icon {
+      background: linear-gradient(135deg, #fca5a5 0%, #fecaca 100%);
+      color: $error-600;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.2);
+    }
+  }
+}

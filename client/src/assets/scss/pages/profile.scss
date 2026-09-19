@@ -1,0 +1,334 @@
+@use "../variables" as *;
+
+// ============================================
+// PROFILE PAGE STYLES
+// ============================================
+
+.profile-container {
+  padding: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+
+  .profile-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+  }
+
+  .profile-header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+
+    .profile-title {
+      margin-bottom: 0;
+      min-width: 0;
+      flex: 1 1 auto;
+    }
+
+    .btn {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+  }
+
+  // Profile Card Sections
+  .profile-card {
+    background-color: $theme-surface;
+    border: 1px solid rgba($theme-primary, 0.3);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .profile-card-header {
+      background-color: $theme-surface-alt;
+      border-bottom: 2px solid $theme-primary;
+      padding: 1rem 1.5rem;
+
+      .profile-card-title {
+        margin-bottom: 0;
+        color: $theme-primary;
+        font-family: $cerebri-semi;
+        font-size: 18px;
+      }
+    }
+
+    .profile-card-body {
+      padding: 1.5rem;
+    }
+  }
+
+  // Form Controls
+  .profile-form-control {
+    &.profile-form-control-disabled {
+      background-color: $theme-bg-light;
+      cursor: not-allowed;
+    }
+
+    &.profile-form-control-invalid {
+      border-color: rgba($theme-danger, 0.5) !important;
+
+      &:focus {
+        border-color: $theme-danger !important;
+        box-shadow: 0 0 0 0.25rem rgba($theme-danger, 0.2) !important;
+      }
+    }
+  }
+
+  // Form Labels with Icons
+  .profile-form-label {
+    font-family: $cerebri-semi;
+    color: $theme-primary;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+
+    .profile-form-label-icon {
+      margin-right: 10px;
+      color: $theme-primary;
+    }
+  }
+
+  // Action Buttons
+  .profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  // Help Text
+  .profile-help-text {
+    font-size: 12px;
+    color: $theme-muted;
+    margin-top: 0.25rem;
+  }
+
+  // Section tabs: single horizontal row, scroll on small screens (same idea as admin .user-edit-tabs)
+  .profile-tabs {
+    border-bottom: none !important;
+    display: flex;
+    flex-wrap: nowrap !important;
+    gap: 0.5rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    padding-bottom: 0.35rem;
+    margin-bottom: 1rem !important;
+
+    .nav-item {
+      flex: 0 0 auto;
+    }
+
+    .nav-link {
+      white-space: nowrap;
+      border-radius: 999px !important;
+      border: 1px solid rgba($theme-primary, 0.35);
+      color: $theme-muted;
+      background: $theme-surface-alt;
+      font-weight: 600;
+      line-height: 1.2;
+      padding: 0.55rem 0.9rem;
+    }
+
+    .nav-link:hover {
+      color: $theme-primary;
+      border-color: rgba($theme-primary, 0.55);
+    }
+
+    .nav-link.active {
+      color: $theme-text-on-primary !important;
+      background: $theme-primary !important;
+      border-color: $theme-primary !important;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .profile-tabs {
+      gap: 0.4rem;
+      padding-bottom: 0.25rem;
+      margin-bottom: 0.75rem !important;
+
+      .nav-link {
+        font-size: 0.82rem;
+        padding: 0.48rem 0.78rem;
+      }
+    }
+  }
+}
+
+// ============================================
+// MEMBER DETAILS PAGE STYLES (Read-only)
+// ============================================
+
+.member-details-container {
+  padding: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+
+  .member-details-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+  }
+
+  .member-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .member-details-title {
+      margin-bottom: 0;
+    }
+  }
+
+  // Detail Item (Read-only)
+  .profile-detail-item {
+    margin-bottom: 1rem;
+
+    .profile-detail-label {
+      font-family: $cerebri-semi;
+      color: $theme-primary;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      font-weight: 600;
+
+      .profile-form-label-icon {
+        margin-right: 10px;
+        color: $theme-primary;
+      }
+    }
+
+    .profile-detail-value {
+      font-size: 16px;
+      color: $theme-text;
+      padding: 0.5rem 0;
+      min-height: 1.5rem;
+      word-wrap: break-word;
+    }
+  }
+}
+
+// ============================================
+// RESPONSIVE STYLES
+// ============================================
+
+@media #{$xs} {
+  .profile-container {
+    padding: 0.5rem;
+
+    .profile-header {
+      gap: 0.5rem;
+
+      .profile-title {
+        line-height: 1.2;
+      }
+    }
+
+    .profile-card {
+      .profile-card-header {
+        padding: 0.75rem 1rem;
+
+        .profile-card-title {
+          font-size: 16px;
+        }
+      }
+
+      .profile-card-body {
+        padding: 1rem;
+      }
+    }
+
+    .profile-actions {
+      flex-direction: column;
+
+      .btn {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media #{$md} {
+  .profile-container {
+    .profile-card {
+      .profile-card-body {
+        padding: 1.25rem;
+      }
+    }
+  }
+}
+
+// ============================================
+// MEMBER DETAILS RESPONSIVE STYLES
+// ============================================
+
+@media #{$xs} {
+  .member-details-container {
+    padding: 0.5rem;
+
+    .member-details-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+
+      .member-details-title {
+        width: 100%;
+      }
+    }
+
+    .profile-card {
+      .profile-card-header {
+        padding: 0.75rem 1rem;
+
+        .profile-card-title {
+          font-size: 16px;
+        }
+      }
+
+      .profile-card-body {
+        padding: 1rem;
+      }
+    }
+
+    .profile-detail-item {
+      .profile-detail-label {
+        font-size: 13px;
+      }
+
+      .profile-detail-value {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+@media #{$md} {
+  .member-details-container {
+    .profile-card {
+      .profile-card-body {
+        padding: 1.25rem;
+      }
+    }
+  }
+}

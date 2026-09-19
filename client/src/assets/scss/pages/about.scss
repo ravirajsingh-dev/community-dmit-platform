@@ -1,0 +1,114 @@
+@use "../variables" as *;
+
+/* ===================================
+   SECTION
+=================================== */
+.about-content-section {
+  padding: 90px 0;
+  background-color: $theme-surface-alt;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+.about-content-header {
+  max-width: 780px;
+  margin: 0 auto 80px;
+  text-align: center;
+}
+
+.about-content-tag {
+  display: inline-block;
+  color: $theme-primary;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+
+.about-content-title {
+  color: $theme-primary;
+  font-size: clamp(30px, 4.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 22px;
+
+  span {
+    color: rgba($theme-primary, 0.7);
+    font-weight: 500;
+  }
+}
+
+.about-content-intro {
+  color: rgba($theme-primary, 0.65);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* ===================================
+   FORCE ONE ROW
+=================================== */
+.about-content-row {
+  flex-wrap: nowrap;
+
+  > div {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+/* ===================================
+   TEXT BLOCKS
+=================================== */
+.about-content-block {
+  padding: 0 50px;
+  position: relative;
+
+  h3 {
+    color: $theme-primary;
+    font-size: 24px;
+    margin-bottom: 18px;
+    letter-spacing: 0.5px;
+  }
+
+  p {
+    color: rgba($theme-primary, 0.65);
+    font-size: 16px;
+    line-height: 1.85;
+  }
+
+  .about-content-text {
+    color: rgba($theme-primary, 0.65);
+    font-size: 16px;
+    line-height: 1.85;
+
+    p {
+      margin-bottom: 15px;
+      color: rgba($theme-primary, 0.65);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+  }
+}
+
+/* Vertical divider (KEY WOW ELEMENT) */
+.about-content-block-right {
+  border-left: 1px solid rgba($theme-primary, 0.25);
+}
+
+/* ===================================
+   MOBILE – STILL ONE ROW
+=================================== */
+@media (max-width: 576px) {
+  .about-content-block {
+    padding: 0 18px;
+
+    h3 {
+      font-size: 18px;
+    }
+
+    p {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+  }
+}

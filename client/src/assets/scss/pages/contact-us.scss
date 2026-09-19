@@ -1,0 +1,198 @@
+@use "../variables" as *;
+
+/* ===================================
+   CONTACT US PAGE
+=================================== */
+.contact-us-page {
+  min-height: 60vh;
+}
+
+.contact-us-content-section {
+  padding: 90px 0;
+  background-color: $theme-surface-alt;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+.contact-us-content-header {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.contact-us-content-title {
+  color: $theme-heading;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 20px;
+}
+
+.contact-us-content-subtitle {
+  color: $theme-text;
+  font-size: 18px;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* ===================================
+   CONTACT INFO CARDS
+=================================== */
+.contact-us-info-row {
+  margin-bottom: 60px;
+}
+
+.contact-us-info-card {
+  background-color: $theme-surface;
+  border: 1px solid $theme-border-muted;
+  border-radius: 12px;
+  padding: 40px 30px;
+  text-align: center;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+
+  .contact-us-info-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 20px;
+    background-color: $theme-primary;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $theme-text-on-primary;
+    font-size: 24px;
+  }
+
+  h3 {
+    color: $theme-heading;
+    font-size: 22px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  .contact-us-info-content {
+    color: $theme-text;
+    font-size: 16px;
+    line-height: 1.8;
+
+    a {
+      color: $theme-primary;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $theme-secondary;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/* ===================================
+   SOCIAL MEDIA SECTION
+=================================== */
+.contact-us-social-section {
+  max-width: 800px;
+  margin: 60px auto 0;
+  text-align: center;
+  padding-top: 60px;
+  border-top: 1px solid $theme-border-muted;
+}
+
+.contact-us-social-title {
+  color: $theme-heading;
+  font-size: 28px;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.contact-us-social-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===================================
+   EMPTY STATE
+=================================== */
+.contact-us-empty {
+  text-align: center;
+  padding: 100px 20px;
+
+  h2 {
+    color: $theme-heading;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: $theme-text;
+    font-size: 16px;
+  }
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+  .contact-us-content-section {
+    padding: 60px 0;
+  }
+
+  .contact-us-content-header {
+    margin-bottom: 40px;
+  }
+
+  .contact-us-content-title {
+    font-size: 28px;
+  }
+
+  .contact-us-content-subtitle {
+    font-size: 16px;
+  }
+
+  .contact-us-info-card {
+    padding: 30px 20px;
+    margin-bottom: 20px;
+
+    .contact-us-info-icon {
+      width: 50px;
+      height: 50px;
+      font-size: 20px;
+    }
+
+    h3 {
+      font-size: 20px;
+    }
+
+    .contact-us-info-content {
+      font-size: 15px;
+    }
+  }
+
+  .contact-us-social-section {
+    margin-top: 40px;
+    padding-top: 40px;
+  }
+
+  .contact-us-social-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .contact-us-social-links {
+    gap: 10px;
+  }
+
+  .contact-us-social-link {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}

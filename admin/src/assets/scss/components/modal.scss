@@ -1,0 +1,53 @@
+@use "../variables" as *;
+
+// ============================================
+// MODALS
+// ============================================
+
+.modal-content {
+  border-radius: $radius-lg;
+  border: 1px solid $dashboard-border-color;
+  box-shadow: $shadow-xl;
+}
+
+.modal-header {
+  border-bottom: 1px solid $dashboard-border-color;
+  padding: 1.25rem 1.5rem;
+
+  .modal-title {
+    font-weight: 600;
+    color: $text-primary;
+    font-size: 1.25rem;
+  }
+
+  .btn-close {
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.modal-body {
+  padding: 1.5rem;
+  color: $text-secondary;
+}
+
+.modal-footer {
+  border-top: 1px solid $dashboard-border-color;
+  padding: 1rem 1.5rem;
+}
+
+.modal-logout-header {
+  border-bottom: 1px solid $dashboard-border-color;
+  padding: $spacing-lg;
+  justify-content: center;
+}
+
+.modal-logout-body {
+  padding: $spacing-lg;
+  color: $text-secondary;
+  text-align: center;
+  font-size: 1rem;
+}

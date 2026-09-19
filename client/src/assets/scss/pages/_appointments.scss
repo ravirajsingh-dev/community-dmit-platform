@@ -1,0 +1,629 @@
+// ============================================
+// Appointments Section – Book, My Bookings, Assigned, SBI PRO
+// Role clarity (Client vs Trainer), attractive UI
+// ============================================
+@use "sass:color";
+@use "../variables" as *;
+
+.appointments-page {
+  .apt-hero {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid $theme-primary;
+
+    &.apt-hero-client {
+      background: linear-gradient(135deg, rgba($theme-primary, 0.08) 0%, rgba($theme-primary, 0.02) 100%);
+      border-left-color: $theme-primary;
+    }
+
+    &.apt-hero-trainer {
+      background: linear-gradient(135deg, rgba($role-trainer, 0.08) 0%, rgba($role-trainer, 0.02) 100%);
+      border-left-color: $role-trainer;
+    }
+
+    &.apt-hero-sbi-pro {
+      background: linear-gradient(135deg, rgba($role-sbi-pro, 0.08) 0%, rgba($role-sbi-pro, 0.02) 100%);
+      border-left-color: $role-sbi-pro;
+    }
+
+    .apt-hero-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+      opacity: 0.9;
+    }
+
+    .apt-hero-content {
+      flex: 1;
+
+      .apt-hero-badge {
+        display: inline-block;
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 0.2rem 0.5rem;
+        border-radius: 6px;
+        margin-bottom: 0.4rem;
+
+        &.apt-badge-client {
+          background: rgba($theme-primary, 0.2);
+          color: color.scale($theme-primary, $lightness: -15%);
+        }
+
+        &.apt-badge-trainer {
+          background: rgba($role-trainer, 0.15);
+          color: $role-trainer;
+        }
+
+        &.apt-badge-sbi-pro {
+          background: rgba($role-sbi-pro, 0.15);
+          color: $role-sbi-pro;
+        }
+      }
+
+      .apt-hero-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: $theme-heading;
+        margin-bottom: 0.25rem;
+      }
+
+      .apt-hero-desc {
+        font-size: 0.875rem;
+        color: $theme-muted;
+        margin: 0;
+      }
+    }
+  }
+
+  .apt-filter-bar {
+    background: rgba(26, 54, 93, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+
+    .apt-filter-label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: $theme-muted;
+      margin-bottom: 0.35rem;
+    }
+  }
+
+  .apt-table-card {
+    background: rgba(20, 38, 63, 0.35);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+
+    .card-body {
+      padding: 1.25rem 1.5rem;
+      background: transparent !important;
+    }
+
+    .table {
+      margin-bottom: 0;
+      background: transparent !important;
+
+      thead th {
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.3px;
+        color: #d4af37;
+        padding: 0.75rem 1rem;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+        background: rgba(26, 54, 93, 0.5) !important;
+        backdrop-filter: blur(8px);
+      }
+
+      tbody td {
+        padding: 0.9rem 1rem;
+        vertical-align: middle;
+      }
+
+      tbody tr {
+        transition: background-color 0.15s ease;
+        &:hover {
+          background: $theme-hover;
+        }
+      }
+    }
+  }
+
+  .apt-status-chip {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.28rem 0.62rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.25px;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+
+  .apt-status-success {
+    background: rgba($theme-success, 0.16);
+    color: color.scale($theme-success, $lightness: 15%);
+    border-color: rgba($theme-success, 0.4);
+  }
+
+  .apt-status-warning {
+    background: rgba($theme-warning, 0.16);
+    color: color.scale($theme-warning, $lightness: 18%);
+    border-color: rgba($theme-warning, 0.38);
+  }
+
+  .apt-status-info {
+    background: rgba($theme-primary, 0.16);
+    color: color.scale($theme-primary, $lightness: 28%);
+    border-color: rgba($theme-primary, 0.38);
+  }
+
+  .apt-status-danger {
+    background: rgba($theme-danger, 0.16);
+    color: color.scale($theme-danger, $lightness: 10%);
+    border-color: rgba($theme-danger, 0.38);
+  }
+
+  .apt-status-secondary {
+    background: rgba($theme-muted, 0.16);
+    color: $theme-muted;
+    border-color: rgba($theme-muted, 0.38);
+  }
+
+  .apt-status-primary {
+    background: rgba($theme-primary, 0.16);
+    color: color.scale($theme-primary, $lightness: 26%);
+    border-color: rgba($theme-primary, 0.38);
+  }
+
+  .apt-status-dark {
+    background: rgba(0, 0, 0, 0.25);
+    color: rgba(255, 255, 255, 0.88);
+    border-color: rgba(0, 0, 0, 0.35);
+  }
+
+  .apt-empty-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: $theme-muted;
+
+    .apt-empty-icon {
+      font-size: 3rem;
+      opacity: 0.35;
+      margin-bottom: 1rem;
+    }
+
+    .apt-empty-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .apt-empty-hint {
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+  }
+
+  // Assigned to Me – Availability card (online/offline per designation)
+  .availability-card {
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid rgba($role-trainer, 0.2);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  }
+
+  .availability-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    background: linear-gradient(135deg, rgba($role-trainer, 0.08) 0%, rgba($role-trainer, 0.02) 100%);
+    border-bottom: 1px solid rgba($role-trainer, 0.12);
+  }
+
+  .availability-card-icon {
+    font-size: 1.75rem;
+    line-height: 1;
+    opacity: 0.9;
+  }
+
+  .availability-card-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: $theme-heading;
+    margin-bottom: 0.35rem;
+  }
+
+  .availability-card-subtitle {
+    font-size: 0.9rem;
+    color: $theme-muted;
+    line-height: 1.45;
+  }
+
+  .availability-card-body {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .availability-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    background: rgba(255, 255, 255, 0.6);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .availability-item-online {
+    border-color: rgba(25, 135, 84, 0.35);
+    background: rgba(25, 135, 84, 0.06);
+    box-shadow: 0 2px 8px rgba(25, 135, 84, 0.08);
+  }
+
+  .availability-item-offline {
+    border-color: rgba(108, 117, 125, 0.25);
+    background: rgba(108, 117, 125, 0.04);
+  }
+
+  .availability-item-main {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .availability-item-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .availability-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .availability-dot-online {
+    background: #198754;
+    box-shadow: 0 0 0 2px rgba(25, 135, 84, 0.3);
+  }
+
+  .availability-dot-offline {
+    background: #6c757d;
+    box-shadow: 0 0 0 2px rgba(108, 117, 125, 0.2);
+  }
+
+  .availability-label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: $theme-heading;
+  }
+
+  .availability-role {
+    font-size: 0.8rem;
+    color: $theme-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .availability-item-action {
+    flex-shrink: 0;
+  }
+
+  .availability-switch {
+    margin-bottom: 0;
+    .form-check-label {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: $theme-muted;
+      margin-left: 0.35rem;
+    }
+  }
+
+  // Book Appointment page – hero + filters + steps
+  &.book-appointment-page {
+    .book-apt-hero {
+      padding: 1.25rem 1.5rem;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+
+    .book-apt-hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      width: 100%;
+    }
+
+    .book-apt-hero-icon {
+      width: 52px;
+      height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: rgba($theme-primary, 0.15);
+      color: $theme-primary;
+    }
+
+    .book-apt-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: $theme-heading;
+    }
+
+    .book-apt-badge {
+      font-size: 0.7rem;
+      padding: 0.25rem 0.6rem;
+      border-radius: 8px;
+    }
+
+    .book-apt-filter-btn {
+      margin-left: auto;
+      flex-shrink: 0;
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+    }
+
+    .book-apt-quick-filters {
+      background: rgba($theme-primary, 0.06);
+      border: 1px solid rgba($theme-primary, 0.12);
+    }
+
+    .book-apt-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: $theme-primary;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-right: 0.5rem;
+    }
+
+    .book-apt-step-inline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 22px;
+      height: 22px;
+      padding: 0 0.35rem;
+      border-radius: 50%;
+      background: $theme-primary;
+      color: #fff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-right: 0.4rem;
+    }
+
+    .book-apt-card-header {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 0.9rem 1.25rem;
+      background: rgba(26, 54, 93, 0.4) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+    }
+
+    .book-apt-submit-btn {
+      font-weight: 600;
+      border-radius: 10px;
+      padding: 0.6rem 1.5rem;
+    }
+
+    .book-apt-stepper {
+      margin-top: 0.25rem;
+    }
+
+    .book-apt-step-chip {
+      border-radius: 999px;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      transition: all 0.2s ease;
+
+      &:hover {
+        transform: translateY(-1px);
+      }
+    }
+
+    .book-apt-summary-card {
+      border-radius: 12px;
+      border: 1px solid rgba($theme-primary, 0.22);
+      background: linear-gradient(
+        180deg,
+        rgba($theme-primary, 0.08) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+
+      .card-header {
+        font-size: 0.95rem;
+        letter-spacing: 0.2px;
+        border-bottom: 1px solid rgba($theme-primary, 0.2);
+        background: rgba(26, 54, 93, 0.45);
+      }
+
+      .card-body {
+        display: grid;
+        gap: 0.35rem;
+      }
+    }
+
+    .book-apt-slot-grid {
+      .book-apt-slot-btn {
+        border-radius: 10px;
+        font-weight: 600;
+        padding: 0.45rem 0.75rem;
+      }
+    }
+
+    .book-apt-nav-row {
+      .btn {
+        border-radius: 10px;
+        font-weight: 600;
+      }
+    }
+
+    @media (max-width: 991.98px) {
+      .book-apt-hero {
+        padding: 1rem;
+      }
+
+      .book-apt-hero-inner {
+        align-items: flex-start;
+        gap: 0.85rem;
+      }
+
+      .book-apt-title {
+        font-size: 1.15rem;
+      }
+
+      .book-apt-filter-btn {
+        margin-left: 0;
+      }
+
+      .book-apt-card-header {
+        font-size: 0.92rem;
+        padding: 0.75rem 0.9rem;
+      }
+
+      .book-apt-step {
+        width: 24px;
+        height: 24px;
+        font-size: 0.75rem;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .apt-hero.book-apt-hero {
+        border-left-width: 0;
+        border: 1px solid rgba($theme-primary, 0.28);
+        background: linear-gradient(
+          145deg,
+          rgba($theme-primary, 0.16) 0%,
+          rgba(15, 30, 50, 0.72) 55%,
+          rgba($theme-primary, 0.08) 100%
+        );
+        box-shadow:
+          0 10px 24px rgba(0, 0, 0, 0.28),
+          inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      }
+
+      .book-apt-hero-icon {
+        width: 46px;
+        height: 46px;
+        border-radius: 14px;
+        background: radial-gradient(
+          circle at 20% 20%,
+          rgba(255, 255, 255, 0.34),
+          rgba($theme-primary, 0.2) 45%,
+          rgba($theme-primary, 0.1) 100%
+        );
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.22);
+      }
+
+      .book-apt-stepper {
+        gap: 0.4rem !important;
+      }
+
+      .book-apt-step-chip {
+        font-size: 0.76rem;
+        padding: 0.35rem 0.65rem !important;
+      }
+
+      .book-apt-summary-card {
+        .card-body {
+          gap: 0.2rem;
+        }
+      }
+
+      .book-apt-slot-grid {
+        .book-apt-slot-btn {
+          width: 100%;
+          text-align: left;
+        }
+      }
+
+      .book-apt-nav-row {
+        .col-md-12 {
+          flex-direction: column;
+          align-items: stretch !important;
+          gap: 0.65rem;
+        }
+
+        .d-flex.gap-2 {
+          width: 100%;
+          display: grid !important;
+          grid-template-columns: 1fr;
+          gap: 0.5rem !important;
+        }
+
+        .btn {
+          width: 100%;
+        }
+      }
+
+      .book-apt-submit-btn {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 575.98px) {
+      .book-apt-hero {
+        border-radius: 16px;
+        padding: 0.9rem 0.85rem;
+      }
+
+      .book-apt-title {
+        font-size: 1.08rem;
+        line-height: 1.25;
+        margin-bottom: 0.2rem !important;
+      }
+
+      .apt-hero-desc {
+        font-size: 0.8rem !important;
+        line-height: 1.35;
+        opacity: 0.95;
+      }
+
+      .book-apt-badge {
+        font-size: 0.62rem;
+        letter-spacing: 0.35px;
+      }
+
+      .book-apt-filter-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.48rem 0.75rem;
+        border-radius: 12px;
+      }
+    }
+  }
+}

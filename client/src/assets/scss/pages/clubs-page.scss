@@ -1,0 +1,155 @@
+@use "../variables" as *;
+
+.clubs-page {
+  .clubs-page__section {
+    margin-bottom: 0.5rem;
+  }
+
+  .clubs-page__title {
+    color: $luxury-primary-gold;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .clubs-page__subtitle {
+    color: $luxury-text-muted !important;
+    max-width: 760px;
+  }
+
+  .clubs-page__formula {
+    background: rgba($luxury-surface-card, 0.52);
+    border: 1px solid rgba($luxury-primary-gold, 0.2);
+    border-radius: 12px;
+    padding: 0.8rem 0.9rem;
+  }
+
+  .clubs-page__formula-title {
+    color: $luxury-gold-highlight;
+    font-size: 0.78rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+
+  .clubs-page__formula-line {
+    color: $luxury-text-main;
+    font-size: 0.72rem;
+    line-height: 1.45;
+    margin-bottom: 0.2rem;
+  }
+
+  .clubs-page__formula-note {
+    margin-top: 0.35rem;
+    color: $luxury-text-muted;
+    font-size: 0.66rem;
+  }
+
+  .clubs-page__card {
+    background: linear-gradient(
+      145deg,
+      rgba($luxury-surface-card, 0.9) 0%,
+      rgba($luxury-surface-highlight, 0.7) 58%,
+      rgba($luxury-bg-secondary, 0.85) 100%
+    ) !important;
+    border: 1px solid rgba($luxury-primary-gold, 0.18) !important;
+    border-radius: 14px !important;
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease,
+      border-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      border-color: rgba($luxury-primary-gold, 0.35) !important;
+    }
+  }
+
+  .clubs-page__card-body {
+    padding: 0.95rem;
+  }
+
+  .clubs-page__club-title {
+    color: $luxury-text-main;
+    font-size: 0.92rem;
+    font-weight: 700;
+  }
+
+  .clubs-page__club-meta {
+    color: $luxury-text-muted !important;
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+  }
+
+  .clubs-page__benefit {
+    margin-top: 0.35rem;
+    color: $luxury-gold-highlight;
+    font-size: 0.74rem;
+    font-weight: 700;
+  }
+
+  .clubs-page__benefit-note {
+    margin-top: 0.25rem;
+    color: $luxury-text-muted;
+    font-size: 0.66rem;
+  }
+
+  .clubs-page__waiting {
+    margin-top: 0.25rem;
+    color: $luxury-gold-highlight;
+    font-size: 0.66rem;
+    font-weight: 700;
+  }
+
+  .clubs-page__status-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .clubs-page__tick,
+  .clubs-page__pending {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+  }
+
+  .clubs-page__tick {
+    background: rgba($theme-success, 0.2);
+    border: 1px solid rgba($theme-success, 0.45);
+    color: $theme-success;
+  }
+
+  .clubs-page__pending {
+    background: rgba($luxury-text-muted, 0.16);
+    border: 1px solid rgba($luxury-text-muted, 0.4);
+    color: $luxury-text-muted;
+  }
+
+  .clubs-page__overall-top {
+    display: flex;
+    justify-content: space-between;
+    color: $luxury-text-main;
+    font-size: 0.76rem;
+  }
+
+  .clubs-page__progress .progress-bar {
+    background: linear-gradient(
+      90deg,
+      rgba($luxury-gold-highlight, 0.95) 0%,
+      rgba($luxury-primary-gold, 0.9) 100%
+    ) !important;
+  }
+
+  .clubs-page__condition {
+    background: rgba($luxury-bg-secondary, 0.44);
+    border: 1px solid rgba($luxury-primary-gold, 0.16);
+    border-radius: 10px;
+    padding: 0.55rem 0.6rem;
+  }
+}

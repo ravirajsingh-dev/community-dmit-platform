@@ -1,0 +1,220 @@
+@use "../variables" as *;
+
+/* ===================================
+   COMING SOON PAGE
+=================================== */
+.coming-soon-page {
+  min-height: 60vh;
+}
+
+.coming-soon-content-section {
+  padding: 90px 0;
+  background-color: $theme-surface-alt;
+}
+
+/* ===================================
+   HEADER
+=================================== */
+.coming-soon-content-header {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.coming-soon-content-title {
+  color: $theme-heading;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 30px;
+}
+
+/* ===================================
+   DESCRIPTION
+=================================== */
+.coming-soon-description {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  text-align: center;
+}
+
+.coming-soon-description-content {
+  color: $theme-text;
+  font-size: 18px;
+  line-height: 1.9;
+  text-align: left;
+
+  p {
+    margin-bottom: 20px;
+    color: $theme-text;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: $theme-heading;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+
+  ul, ol {
+    margin-left: 20px;
+    margin-bottom: 20px;
+    
+    li {
+      list-style: disc;
+      margin-bottom: 10px;
+      color: $theme-text;
+    }
+  }
+}
+
+/* ===================================
+   INITIATIVES SECTION
+=================================== */
+.coming-soon-initiatives {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.coming-soon-initiatives-title {
+  color: $theme-heading;
+  font-size: clamp(28px, 4vw, 36px);
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.coming-soon-initiatives-row {
+  margin-top: 20px;
+}
+
+.coming-soon-initiative-card {
+  background-color: $theme-surface;
+  border: 1px solid $theme-border-muted;
+  border-radius: 12px;
+  padding: 30px;
+  height: 100%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+
+  &:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+  }
+}
+
+.coming-soon-initiative-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coming-soon-initiative-bullet {
+  color: $theme-primary;
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.coming-soon-initiative-content {
+  flex: 1;
+}
+
+.coming-soon-initiative-title {
+  color: $theme-heading;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.coming-soon-initiative-description {
+  color: $theme-text;
+  font-size: 15px;
+  line-height: 1.7;
+
+  p {
+    margin-bottom: 10px;
+    color: $theme-text;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+/* ===================================
+   EMPTY STATE
+=================================== */
+.coming-soon-empty {
+  text-align: center;
+  padding: 100px 20px;
+
+  h2 {
+    color: $theme-heading;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: $theme-text;
+    font-size: 16px;
+  }
+}
+
+/* ===================================
+   MOBILE RESPONSIVE
+=================================== */
+@media (max-width: 768px) {
+  .coming-soon-content-section {
+    padding: 60px 0;
+  }
+
+  .coming-soon-content-header {
+    margin-bottom: 40px;
+  }
+
+  .coming-soon-content-title {
+    font-size: 28px;
+  }
+
+  .coming-soon-description {
+    margin-bottom: 40px;
+  }
+
+  .coming-soon-description-content {
+    font-size: 16px;
+  }
+
+  .coming-soon-initiatives-title {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .coming-soon-initiative-card {
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .coming-soon-initiative-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .coming-soon-initiative-bullet {
+    font-size: 24px;
+  }
+
+  .coming-soon-initiative-title {
+    font-size: 18px;
+  }
+
+  .coming-soon-initiative-description {
+    font-size: 14px;
+  }
+}

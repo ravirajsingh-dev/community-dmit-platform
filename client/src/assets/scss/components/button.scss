@@ -1,0 +1,112 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+// ============================================
+// HOME PAGE BUTTON ENHANCEMENTS
+// Extends existing styles. No new buttons.
+// Uses theme variables & mixins only.
+// ============================================
+
+// --------------------------------------------
+// Subtle pulse animation (smooth, minimal)
+// --------------------------------------------
+@keyframes btn-pulse-subtle {
+  0%,
+  100% {
+    box-shadow: 0 2px 8px rgba($theme-primary, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 12px rgba($theme-primary, 0.32);
+  }
+}
+
+@keyframes btn-glow-soft {
+  0%,
+  100% {
+    box-shadow: 0 2px 8px rgba($theme-primary, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 16px rgba($theme-primary, 0.4);
+  }
+}
+
+// --------------------------------------------
+// Header: Register, Login, Logout
+// .authentication-button-group .navigation-item
+// --------------------------------------------
+.authentication-button-group {
+  .navigation-item {
+    font-family: $cerebri-semi;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    animation: btn-pulse-subtle 2.5s ease-in-out infinite;
+    @include transition(0.3s);
+
+    .navigation-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+
+    .navigation-icon {
+      @include transition(0.3s);
+    }
+
+    &:hover {
+      animation: none;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba($theme-primary, 0.35);
+
+      .navigation-icon {
+        transform: scale(1.08);
+      }
+    }
+
+    &.active {
+      animation: none;
+      box-shadow: 0 4px 12px rgba($theme-primary, 0.3);
+    }
+  }
+}
+
+// --------------------------------------------
+// Donation section: UPI amount + "Donate Any Other Amount"
+// .donation-amount-button
+// --------------------------------------------
+.donation-amount-button {
+  animation: btn-glow-soft 2.8s ease-in-out infinite;
+  font-family: $cerebri-semi;
+  letter-spacing: 0.3px;
+  @include transition(0.35s);
+
+  .donation-amount-value {
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    text-shadow: 0 1px 2px rgba($theme-surface-alt, 0.15);
+  }
+
+  .donation-amount-label {
+    font-weight: 500;
+    letter-spacing: 0.2px;
+  }
+
+  &:hover {
+    animation: none;
+    box-shadow: 0 10px 24px rgba($theme-primary, 0.4);
+  }
+
+  &:active {
+    animation: none;
+  }
+}
+
+// --------------------------------------------
+// Reduced motion: disable pulse for accessibility
+// --------------------------------------------
+@media (prefers-reduced-motion: reduce) {
+  .authentication-button-group .navigation-item,
+  .donation-amount-button {
+    animation: none;
+  }
+}

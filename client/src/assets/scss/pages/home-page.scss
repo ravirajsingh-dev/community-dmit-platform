@@ -1,0 +1,15 @@
+@use "../variables" as *;
+
+// ============================================
+// HOME PAGE – Section consistency
+// ============================================
+.home-page {
+  overflow-x: hidden;
+
+  // Ensure sections stack with no gap issues
+  section {
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+}

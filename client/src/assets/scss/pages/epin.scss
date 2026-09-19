@@ -1,0 +1,473 @@
+// ============================================
+// E-PIN MANAGEMENT — Bold, visible, attractive UI
+// ============================================
+@use "../variables" as *;
+
+// ---------- E-PIN List Page ----------
+.epin-page {
+  // ----- Hero: Big, gold-accented banner -----
+  .epin-hero {
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .epin-hero-inner {
+    position: relative;
+    background: linear-gradient(
+      145deg,
+      rgba(20, 38, 63, 0.98) 0%,
+      rgba(26, 54, 93, 0.95) 50%,
+      rgba(15, 27, 45, 0.98) 100%
+    );
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    border-radius: 20px;
+    padding: 2rem 2.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    min-height: 120px;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+      0 8px 32px rgba(0, 0, 0, 0.4),
+      0 0 60px rgba(212, 175, 55, 0.12);
+  }
+
+  .epin-hero-icon {
+    width: 72px;
+    height: 72px;
+    min-width: 72px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.15) 100%);
+    border: 2px solid rgba(212, 175, 55, 0.5);
+    color: #f6d365;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+  }
+
+  .epin-hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .epin-hero-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .epin-mini-card {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.6rem 1rem;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(212, 175, 55, 0.1) 100%);
+    border: 2px solid rgba(212, 175, 55, 0.45);
+    min-width: 95px;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.15);
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.25);
+      border-color: rgba(212, 175, 55, 0.6);
+    }
+
+    .epin-mini-card__icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.35) 0%, rgba(212, 175, 55, 0.15) 100%);
+      border: 1px solid rgba(212, 175, 55, 0.5);
+      color: #f6d365;
+      box-shadow: 0 2px 12px rgba(212, 175, 55, 0.2);
+    }
+
+    .epin-mini-card__text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+
+    .epin-mini-card__label {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: rgba(246, 211, 101, 0.85);
+      line-height: 1.2;
+    }
+
+    .epin-mini-card__value {
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: #f6d365;
+    }
+  }
+
+  .epin-hero-actions {
+    flex-shrink: 0;
+  }
+
+  .epin-hero-btn {
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(52, 211, 153, 0.3);
+  }
+
+  // ----- Stats: 3 clear cards in a row -----
+  .epin-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .epin-stat-card {
+    background: rgba(20, 38, 63, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+      border-color: rgba(212, 175, 55, 0.25);
+    }
+
+    .epin-stat-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #9aa7b2;
+      margin-bottom: 0.35rem;
+      display: block;
+    }
+
+    .epin-stat-value {
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1.2;
+      display: block;
+    }
+
+    &.epin-stat-card--total .epin-stat-value {
+      color: #4fc3f7;
+    }
+    &.epin-stat-card--unused .epin-stat-value {
+      color: #34d399;
+    }
+    &.epin-stat-card--used .epin-stat-value {
+      color: #9aa7b2;
+    }
+  }
+
+  // ----- Tabs: Pill style, clear active -----
+  .epin-tabs {
+    .nav-tabs {
+      border: none;
+      gap: 0.5rem;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: #9aa7b2;
+      border: 2px solid transparent;
+      border-radius: 12px;
+      padding: 0.65rem 1.25rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s;
+      background: rgba(255, 255, 255, 0.04);
+
+      &:hover {
+        color: #e6edf5;
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.1);
+      }
+
+      &.active {
+        color: #0b1220;
+        background: linear-gradient(135deg, #f6d365 0%, #d4af37 100%);
+        border-color: rgba(246, 211, 101, 0.6);
+        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35);
+      }
+    }
+
+    .tab-content {
+      padding-top: 0.5rem;
+    }
+  }
+
+  // Data table horizontal scroll on small screens
+  .tab-content,
+  .rdt_TableWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  @media (max-width: 767px) {
+    .tab-content {
+      margin-left: -0.25rem;
+      margin-right: -0.25rem;
+      padding-left: 0.25rem;
+      padding-right: 0.25rem;
+    }
+  }
+
+  // ----- E-PIN code in table -----
+  .epin-code {
+    font-family: "SF Mono", "Monaco", "Consolas", monospace;
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 0.5rem 0.85rem;
+    border-radius: 10px;
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.35);
+    color: #f6d365;
+    letter-spacing: 0.03em;
+  }
+
+  .epin-tab-actions {
+    margin-bottom: 1rem;
+  }
+
+  // ----- Responsive: Tablet & below -----
+  @media (max-width: 991px) {
+    .epin-hero-inner {
+      flex-wrap: wrap;
+      padding: 1.5rem 1.25rem;
+      gap: 1.25rem;
+    }
+    .epin-hero-cards {
+      flex: 1 1 100%;
+    }
+    .epin-hero-actions {
+      width: 100%;
+      margin-left: 0 !important;
+    }
+    .epin-hero-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  // ----- Responsive: Mobile -----
+  @media (max-width: 767px) {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+
+    .epin-hero {
+      margin-bottom: 1rem;
+    }
+    .epin-hero-inner {
+      flex-direction: column;
+      align-items: stretch;
+      padding: 1rem 1rem;
+      min-height: auto;
+      gap: 1rem;
+      border-radius: 16px;
+    }
+    .epin-hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+    .epin-mini-card {
+      min-width: 0;
+      padding: 0.5rem 0.75rem;
+      border-radius: 10px;
+    }
+    .epin-mini-card__icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+    .epin-mini-card__label {
+      font-size: 0.6rem;
+    }
+    .epin-mini-card__value {
+      font-size: 1rem;
+    }
+    .epin-hero-actions {
+      width: 100%;
+    }
+    .epin-hero-btn {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+    }
+    .epin-tabs .nav-tabs {
+      gap: 0.35rem;
+      margin-bottom: 1rem;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2px;
+    }
+    .epin-tabs .nav-link {
+      padding: 0.5rem 0.85rem;
+      font-size: 0.85rem;
+      white-space: nowrap;
+    }
+    .epin-code {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.6rem;
+      word-break: break-all;
+      max-width: 100%;
+    }
+    .epin-tab-actions {
+      margin-bottom: 0.75rem;
+    }
+    .epin-tab-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  // ----- Responsive: Small mobile -----
+  @media (max-width: 576px) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+
+    .epin-hero-inner {
+      padding: 0.85rem 0.75rem;
+    }
+    .epin-hero-cards {
+      grid-template-columns: 1fr;
+    }
+    .epin-mini-card {
+      flex-direction: row;
+    }
+    .epin-tabs .nav-link {
+      padding: 0.45rem 0.7rem;
+      font-size: 0.8rem;
+    }
+    .epin-code {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.5rem;
+    }
+  }
+}
+
+// ---------- Bulk Transfer Page ----------
+.epin-bulk-transfer-page {
+  .epin-transfer-card {
+    background: linear-gradient(
+      145deg,
+      rgba(20, 38, 63, 0.95) 0%,
+      rgba(26, 54, 93, 0.9) 100%
+    );
+    border: 2px solid rgba(212, 175, 55, 0.4);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow:
+      0 8px 40px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  }
+
+  .epin-transfer-card-header {
+    padding: 1.5rem 1.75rem;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.25);
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    background: rgba(212, 175, 55, 0.06);
+  }
+
+  .epin-transfer-card-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.3) 0%, rgba(212, 175, 55, 0.15) 100%);
+    border: 2px solid rgba(212, 175, 55, 0.45);
+    color: #f6d365;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(212, 175, 55, 0.2);
+  }
+
+  .epin-transfer-card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #e6edf5;
+    margin: 0;
+  }
+
+  .epin-available-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(52, 211, 153, 0.2);
+    border: 2px solid rgba(52, 211, 153, 0.5);
+    color: #34d399;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .epin-transfer-card .form-label {
+    color: #9aa7b2;
+    font-weight: 600;
+  }
+
+  .epin-transfer-card .form-control {
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    color: #e6edf5;
+    border-radius: 12px;
+    padding: 0.6rem 0.9rem;
+
+    &::placeholder {
+      color: #9aa7b2;
+      opacity: 0.8;
+    }
+
+    &:focus {
+      background: rgba(0, 0, 0, 0.35);
+      border-color: rgba(212, 175, 55, 0.6);
+      box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.2);
+    }
+  }
+
+  @media (max-width: 767px) {
+    .epin-transfer-card-header {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem 1rem;
+      gap: 0.75rem;
+    }
+    .epin-transfer-card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+    }
+    .epin-transfer-card-title {
+      font-size: 1.15rem;
+    }
+    .epin-available-badge {
+      padding: 0.6rem 1rem;
+      font-size: 0.9rem;
+    }
+    .epin-transfer-card .form-control {
+      padding: 0.6rem 0.75rem;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+@use "../variables" as *;
+
+// ============================================
+// HEADER & NAVBAR
+// ============================================
+
+.layout-header-navbar {
+  background: $dashboard-primary-color;
+  box-shadow: $shadow-sm;
+  border-bottom: 1px solid $dashboard-border-color;
+  height: 56px;
+  min-height: 56px;
+  flex-shrink: 0;
+
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    color: $text-primary;
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  .nav-link {
+    color: $text-secondary;
+    margin-right: $spacing-md;
+    padding: $spacing-sm $spacing-md;
+    border-radius: $radius-md;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: $dashboard-secondary-color;
+      color: $text-primary;
+    }
+  }
+
+  .dropdown-toggle {
+    color: $text-primary !important;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+.layout-header-profile-menu {
+  width: 20vw;
+  min-width: 200px;
+  padding: $spacing-md;
+
+  .layout-header-profile-icon {
+    border-bottom: 1px solid $dashboard-border-color;
+    padding-bottom: $spacing-md;
+    margin-bottom: $spacing-md;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    color: $text-primary;
+    text-decoration: none;
+    padding: $spacing-sm;
+    border-radius: $radius-md;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: $dashboard-secondary-color;
+    }
+  }
+}
+
+.layout-header-nav {
+  max-height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .layout-header-profile-menu {
+    width: 50vw;
+    min-width: 180px;
+  }
+}
