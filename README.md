@@ -52,3 +52,7 @@ SEED_ROOT_PASSWORD='your-strong-password' node seeds/createRootUser.js
 ## Security
 
 Secrets live in `.env` (see `.env.example`). Do not commit real API keys, database URIs, or production hosts.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
